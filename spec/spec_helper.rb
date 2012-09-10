@@ -1,5 +1,6 @@
 ENV['PRODUCT_ID'] = "airqualityegg"
 ENV['API_KEY'] = "apikey"
+ENV['API_URL'] = "http://api.cosm.com"
 
 require File.dirname(__FILE__) + '/../airqualityegg'
 
