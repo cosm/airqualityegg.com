@@ -1,0 +1,6 @@
+<h1><%= @feed.title %></h1>
+<form method="post" action="/egg/<%= @feed.id %>/update">
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title" value="<%= @feed.title %>">
+  <input type="submit" name="submit" value="Save">
+</form>
