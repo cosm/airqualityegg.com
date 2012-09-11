@@ -26,25 +26,29 @@ class AirQualityEgg < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  # Render css from scss
   get '/style.css' do
     scss :style
   end
 
+  # Home page
   get '/' do
     @error = session.delete(:error)
     erb :home
   end
 
+  # Edit egg metadata
   get '/egg/:id/edit' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
+    redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
     response = Cosm::Client.get(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :edit
   end
 
+  # Register your egg
   post '/register' do
     begin
-      raise "Egg not found" if params[:serial].blank?
       logger.info("GET: #{product_url}")
       response = Cosm::Client.get(product_url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
@@ -57,16 +61,18 @@ class AirQualityEgg < Sinatra::Base
     end
   end
 
+  # Update egg metadata
   post '/egg/:id/update' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
+    redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
     feed = Cosm::Feed.new(:title => params[:title], :id => feed_id)
     response = Cosm::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
   end
 
+  # View egg dashboard
   get '/egg/:id' do
-    feed_id, api_key = extract_feed_id_and_api_key_from_session
-    response = Cosm::Client.get(feed_url(feed_id), :headers => {"X-ApiKey" => api_key})
+    response = Cosm::Client.get(feed_url(params[:id]), :headers => {"X-ApiKey" => $api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :show
   end
@@ -75,6 +81,8 @@ class AirQualityEgg < Sinatra::Base
 
   def extract_feed_id_and_api_key_from_session
     [session['response_json']['feed_id'], session['response_json']['apikey']]
+  rescue
+    redirect_with_error('Egg not found')
   end
 
   def feed_url(feed_id)
@@ -82,6 +90,7 @@ class AirQualityEgg < Sinatra::Base
   end
 
   def product_url
+    redirect_with_error('Please enter a serial number') if params[:serial].blank?
     "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
   end
 
