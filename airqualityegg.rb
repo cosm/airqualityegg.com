@@ -28,7 +28,7 @@ class AirQualityEgg < Sinatra::Base
     feed_id = session['response_json']['feed_id']
     api_key = session['response_json']['apikey']
     url = "#{$api_url}/v2/feeds/#{feed_id}.json"
-    response = Cosm::Client.get(url, :headers => {"X-ApiKey" => api_key})
+    response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :edit
   end
@@ -37,7 +37,7 @@ class AirQualityEgg < Sinatra::Base
     begin
       raise "Egg not found" if params[:serial].blank?
       url = "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
-      response = Cosm::Client.get(url, :headers => {"X-ApiKey" => $api_key})
+      response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
       session['response_json'] = json
       feed_id = json['feed_id']
@@ -55,7 +55,7 @@ class AirQualityEgg < Sinatra::Base
     api_key = session['response_json']['apikey']
     feed = Cosm::Feed.new(:title => params[:title], :id => feed_id)
     url = "#{$api_url}/v2/feeds/#{feed_id}.json"
-    response = Cosm::Client.put(url, :headers => {"X-ApiKey" => api_key}, :body => feed.to_json)
+    response = Cosm::Client.put(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
   end
 
