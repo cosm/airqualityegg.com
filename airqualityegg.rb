@@ -7,6 +7,7 @@ class AirQualityEgg < Sinatra::Base
 
   configure do
     enable :sessions
+    enable :logging
     $product_id = ENV['PRODUCT_ID']
     $api_key = ENV['API_KEY']
     $api_url = ENV['API_URL'] || Cosm::Client.base_uri
@@ -36,6 +37,7 @@ class AirQualityEgg < Sinatra::Base
     begin
       raise "Egg not found" if params[:serial].blank?
       url = "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
+      logger.info("GET: #{url}")
       response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
       session['response_json'] = json
