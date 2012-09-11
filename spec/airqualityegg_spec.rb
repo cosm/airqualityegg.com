@@ -10,7 +10,10 @@ describe AirQualityEgg, :type => :request do
   describe 'registering' do
 
     it 'should render the edit form if found' do
-      request_stub = stub_request(:get, "http://api.cosm.com/v2/products/airqualityegg/devices/123/activate").
+      stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
+        with(:headers => { 'X-ApiKey' => 'HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g' }).
+        to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
+      stub_request(:get, "http://api.cosm.com/v2/products/airqualityegg/devices/123/activate").
         with(:headers => { 'X-ApiKey' => 'apikey'}).
         to_return(:status => 200, :body => MultiJson.dump({"datastreams"=>[], "feed_id"=>101, "apikey"=>"HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g"}))
       visit '/'
