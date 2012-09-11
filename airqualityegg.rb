@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra/base'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if Sinatra::Base.development?
 require 'sass'
 require 'cosm-rb'
 

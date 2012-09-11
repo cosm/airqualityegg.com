@@ -1,11 +1,11 @@
 source :rubygems
 
 gem 'sinatra'
-gem 'sinatra-contrib'
 gem 'cosm-rb'
 gem 'sass'
 
 group :development, :test do
+  gem 'sinatra-contrib'
   gem 'capybara'
   gem 'rake'
   gem 'rspec'
