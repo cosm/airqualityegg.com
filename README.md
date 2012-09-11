@@ -6,7 +6,9 @@ Air Quality Egg dashboard
 
 ### Development
 
+`gem install bundler`
+
 `bundle install`
 
-`API_KEY=<cosm_api_key> PRODUCT_ID=<cosm_product_id> b rackup config.ru`
+`API_KEY=<cosm_api_key> PRODUCT_ID=<cosm_product_id> bundle exec rackup config.ru`
 
