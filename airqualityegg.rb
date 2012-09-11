@@ -25,8 +25,7 @@ class AirQualityEgg < Sinatra::Base
   end
 
   get '/egg/:id/edit' do
-    feed_id = session['response_json']['feed_id']
-    api_key = session['response_json']['apikey']
+    feed_id, api_key = extract_feed_id_and_api_key_from_session
     url = "#{$api_url}/v2/feeds/#{feed_id}.json"
     response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
@@ -40,8 +39,7 @@ class AirQualityEgg < Sinatra::Base
       response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
       session['response_json'] = json
-      feed_id = json['feed_id']
-      api_key = json['apikey']
+      feed_id, api_key = extract_feed_id_and_api_key_from_session
       raise "Egg not found" unless feed_id
       redirect "/egg/#{feed_id}/edit"
     rescue
@@ -51,8 +49,7 @@ class AirQualityEgg < Sinatra::Base
   end
 
   post '/egg/:id/update' do
-    feed_id = session['response_json']['feed_id']
-    api_key = session['response_json']['apikey']
+    feed_id, api_key = extract_feed_id_and_api_key_from_session
     feed = Cosm::Feed.new(:title => params[:title], :id => feed_id)
     url = "#{$api_url}/v2/feeds/#{feed_id}.json"
     response = Cosm::Client.put(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
@@ -60,11 +57,16 @@ class AirQualityEgg < Sinatra::Base
   end
 
   get '/egg/:id' do
-    feed_id = session['response_json']['feed_id']
-    api_key = session['response_json']['apikey']
+    feed_id, api_key = extract_feed_id_and_api_key_from_session
     url = "#{$api_url}/v2/feeds/#{feed_id}.json"
     response = Cosm::Client.get(url, :headers => {"X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :show
+  end
+
+  private
+
+  def extract_feed_id_and_api_key_from_session
+    [session['response_json']['feed_id'], session['response_json']['apikey']]
   end
 end
