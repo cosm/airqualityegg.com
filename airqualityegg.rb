@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra/base'
+require 'sinatra/reloader'
+require 'sass'
 require 'cosm-rb'
 
 class AirQualityEgg < Sinatra::Base
@@ -18,6 +20,14 @@ class AirQualityEgg < Sinatra::Base
     puts "WARN: You should set a SESSION_SECRET" unless ENV['SESSION_SECRET']
 
     set :session_secret, ENV['SESSION_SECRET'] || 'airqualityegg_session_secret'
+  end
+
+  configure :development do
+    register Sinatra::Reloader
+  end
+
+  get '/style.css' do
+    scss :style
   end
 
   get '/' do
