@@ -2,11 +2,13 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.2)
-    cosm-rb (0.1.01)
+    cosm-rb (0.2.00)
       fastercsv (>= 1.5.x)
       httparty (>= 0.8.3)
       multi_json (>= 1.3.6)
+      multi_xml (>= 0.5.1)
       nokogiri (>= 1.4.4)
+      ox (>= 1.5.9)
       yajl-ruby (>= 1.1.0)
     crack (0.3.1)
     diff-lcs (1.1.3)
@@ -17,6 +19,7 @@ GEM
     multi_json (1.3.6)
     multi_xml (0.5.1)
     nokogiri (1.5.5)
+    ox (1.5.9)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
