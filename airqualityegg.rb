@@ -37,8 +37,7 @@ class AirQualityEgg < Sinatra::Base
 
   get '/egg/:id/edit' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
-    url = "#{$api_url}/v2/feeds/#{feed_id}.json"
-    response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
+    response = Cosm::Client.get(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :edit
   end
@@ -46,32 +45,28 @@ class AirQualityEgg < Sinatra::Base
   post '/register' do
     begin
       raise "Egg not found" if params[:serial].blank?
-      url = "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
-      logger.info("GET: #{url}")
-      response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
+      logger.info("GET: #{product_url}")
+      response = Cosm::Client.get(product_url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
       session['response_json'] = json
       feed_id, api_key = extract_feed_id_and_api_key_from_session
-      raise "Egg not found" unless feed_id
+      redirect_with_error("Egg not found") unless feed_id
       redirect "/egg/#{feed_id}/edit"
     rescue
-      session['error'] = "Egg not found"
-      redirect '/'
+      redirect_with_error "Egg not found"
     end
   end
 
   post '/egg/:id/update' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
     feed = Cosm::Feed.new(:title => params[:title], :id => feed_id)
-    url = "#{$api_url}/v2/feeds/#{feed_id}.json"
-    response = Cosm::Client.put(url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
+    response = Cosm::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
   end
 
   get '/egg/:id' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
-    url = "#{$api_url}/v2/feeds/#{feed_id}.json"
-    response = Cosm::Client.get(url, :headers => {"X-ApiKey" => api_key})
+    response = Cosm::Client.get(feed_url(feed_id), :headers => {"X-ApiKey" => api_key})
     @feed = Cosm::Feed.new(response.body)
     erb :show
   end
@@ -80,5 +75,18 @@ class AirQualityEgg < Sinatra::Base
 
   def extract_feed_id_and_api_key_from_session
     [session['response_json']['feed_id'], session['response_json']['apikey']]
+  end
+
+  def feed_url(feed_id)
+    "#{$api_url}/v2/feeds/#{feed_id}.json"
+  end
+
+  def product_url
+    "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
+  end
+
+  def redirect_with_error(message)
+    session['error'] = message
+    redirect '/'
   end
 end
