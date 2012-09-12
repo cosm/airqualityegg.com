@@ -22,6 +22,10 @@ class AirQualityEgg < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET'] || 'airqualityegg_session_secret'
   end
 
+  configure :production do
+    require 'newrelic_rpm'
+  end
+
   configure :development do
     register Sinatra::Reloader
   end
