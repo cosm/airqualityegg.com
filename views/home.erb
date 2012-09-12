@@ -1,8 +1,7 @@
-<h1>Air Quality Egg</h1>
-<h2>Got an egg?</h2>
-<p><%= @error %></p>
-<form method="post" action="/register">
-  <label for="serial">Enter serial:</label>
-  <input type="text" id="serial" name="serial">
-  <input type="submit" name="submit" value="Submit">
-</form>
+<section class="claiming">
+  <form method="post" action="/register">
+    <input class="input claiming-input" type="text" id="serial" name="serial" placeholder="Serial Number">
+    <input class="button claiming-button" type="submit" name="submit" value="Add my egg">
+  </form>
+  <p class="claiming-error<% if !@error %> hidden<% end %>"><%= @error %></p>
+</section>

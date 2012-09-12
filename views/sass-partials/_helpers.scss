@@ -1,74 +1,86 @@
-// Image replacement
+// --------------------------------
+//
+// MIXINS & FUNCTIONS
+//
+//
 
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px;
+// Calculate Ems
+
+@function em ( $n: $font-baseline, $base: $font-basesize ) {
+  @return $n / $base + em;
 }
 
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 100%;
+// CSS3
+
+@mixin opacity ( $opacity: 100 ) {
+  @if $opacity == 100 {
+    filter: none; // better for IE7
+  } @else {
+    filter: alpha(opacity=$opacity);
+  }
+  -khtml-opacity: $opacity / 100;
+    -moz-opacity: $opacity / 100;
+         opacity: $opacity / 100;
 }
 
-// Hide from both screenreaders and browsers: h5bp.com/u
-
-.hidden {
-  display: none !important;
-  visibility: hidden;
+@mixin transition ( $value ) {
+  -webkit-transition: #{$value};
+     -moz-transition: #{$value};
+      -ms-transition: #{$value};
+       -o-transition: #{$value};
+          transition: #{$value};
 }
 
-// Hide only visually, but have it available for screenreaders: h5bp.com/v
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+@mixin transform ( $value ) {
+  -webkit-transform: #{$value};
+     -moz-transform: #{$value};
+      -ms-transform: #{$value};
+       -o-transform: #{$value};
+          transform: #{$value};
 }
 
-// Extends the .visuallyhidden class to allow the element to be focusable
-// when navigated to via the keyboard: h5bp.com/p
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+@mixin box-shadow ( $value ) {
+  -webkit-box-shadow: #{$value};
+     -moz-box-shadow: #{$value};
+          box-shadow: #{$value};
 }
 
-// Hide visually and from screenreaders, but maintain layout
-
-.invisible {
-  visibility: hidden;
+@mixin border-radius ( $value ) {
+  -webkit-border-radius: #{$value};
+     -moz-border-radius: #{$value};
+          border-radius: #{$value};
 }
 
-// Clearfix: contain floats
+// --------------------------------
+//
+// HELPERS
+//
+//
 
-.clearfix:before,
-.clearfix:after {
-  content: " "; 
-  display: table;
+@mixin clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    zoom: 1;
+  }
+  &:after {
+    clear: both;
+  }
 }
+.clearfix { @include clearfix; }
 
-.clearfix:after {
-  clear: both;
-}
-
-// For IE 6/7 only
-// Include this rule to trigger hasLayout and contain floats.
-
-.clearfix {
-  *zoom: 1;
-}
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.inline { display: inline; }
+.block { display: block; }
+.no-margin { margin-bottom: 0 !important; }
+.align-center { text-align: center; }
+.scroll-x { overflow-x: auto; }
+.scroll-y { overflow-y: auto; }
+.strong { font-weight: bold; }

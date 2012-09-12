@@ -1,0 +1,59 @@
+// DEFAULTS
+
+body {
+  font-size: em($font-basesize, 16);
+  line-height: em($font-baseline);
+  color: $color-body;
+  background-color: $color-background-alt;
+  -webkit-font-smoothing: antialiased;
+}
+
+// LINKS
+
+a {
+  color: $color-blue;
+  text-decoration: none;
+  $transition: color .15s ease-out;
+  @include transition( $transition );
+
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus,
+  &:hover {
+    color: $color-blue-dark;
+  }
+
+  // DARK LINK
+
+  &.link-dark {
+    color: $color-blue-darkest;
+
+    &:hover,
+    &:focus {
+      color: $color-blue-dark-alt;
+    }
+  }
+}
+
+// MAIN
+
+.app-header {
+  background-color: $color-background;
+}
+
+.app-header-inner {
+  padding: 0 em($site-gutter);
+}
+
+.app-footer,
+.app-content {
+  padding: em($site-gutter/2) em($site-gutter);
+}
+
+.app-content {
+  position: relative;
+  background-color: $color-background;
+}
