@@ -320,6 +320,7 @@ nav ol {
 img {
   border: 0; /* 1 */
   -ms-interpolation-mode: bicubic; /* 2 */
+  vertical-align: middle;
 }
 
 /*
@@ -359,9 +360,9 @@ form {
 */
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -488,6 +489,7 @@ input::-moz-focus-inner {
 textarea {
   overflow: auto; /* 1 */
   vertical-align: top; /* 2 */
+  resize: vertical;
 }
 
 /* ==========================================================================
@@ -501,4 +503,35 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+
+// Remove text-shadow in selection highlight
+// These selection declarations have to be separate.
+// Customize the background color to match your design.
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+// A better looking default horizontal rule
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+img, object, embed {
+  max-width: 100%;
+  height: auto;
 }

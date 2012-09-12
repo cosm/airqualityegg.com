@@ -1,0 +1,45 @@
+//
+// INPUT
+//
+
+.input {
+  padding: em(5) 1em;
+  font-size: 1em;
+  line-height: em($font-baseline);
+  color: $color-body;
+  background-color: $color-blue-lightest;
+  border: 1px solid $color-blue-light-alt;
+  @include border-radius( em(5) );
+  @include box-shadow( inset 0 2px 3px rgba(0,0,0,.15) );
+  $transition: background-color .15s ease-out, box-shadow .15s ease-out;
+  @include transition($transition);
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    outline: 0;
+    background-color: #fff;
+    @include box-shadow( inset 0 1px 3px rgba(0,0,0,.15) );
+
+    &::-webkit-input-placeholder {
+      color: $color-blue-light;
+    }
+
+    &:-moz-placeholder {
+      color: $color-blue-light;
+    }
+  }
+
+  // placeholder
+
+  &::-webkit-input-placeholder {
+    color: $color-blue;
+    font-weight: bold;
+    -webkit-transition: color .15s ease-out;
+  }
+
+  &:-moz-placeholder {
+    color: $color-blue;
+    font-weight: bold;
+    -moz-transition: color .15s ease-out;
+  }
+}

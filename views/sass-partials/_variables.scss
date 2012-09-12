@@ -1,0 +1,51 @@
+// --------------------------------
+//
+// COLORS
+//
+//
+
+//
+// BASE
+//
+
+$color-body           : #1a2732;
+$color-background     : #fff;
+$color-background-alt : #e6ebed;
+
+//
+// BLUES
+//
+
+$color-blue-lightest  : #f2f4f5;
+$color-blue-light     : #dfe5e6;
+$color-blue-light-alt : #c5d3d7;
+$color-blue           : #a8bbc6;
+$color-blue-dark      : #394a59;
+$color-blue-dark-alt  : #51626f;
+$color-blue-darkest   : #1a2732;
+
+//
+// ACCENT
+//
+
+$color-green  : #c7f85d;
+$color-yellow : #f8d55d;
+$color-red    : #f66f4f;
+
+//--------------------------------
+//
+// TYPOGRAPHY
+//
+//
+
+$font-basesize  : 14;
+$font-baseline  : 18.001; // safe for rounding errors
+
+//--------------------------------
+//
+// DIMENSIONS
+//
+//
+
+$site-gutter    : 40;
+$site-maxwidth  : 1133px;

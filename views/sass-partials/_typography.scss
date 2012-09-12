@@ -1,0 +1,13 @@
+//
+// HEADINGS
+//
+
+h1, h2, h3 { 
+  letter-spacing: -.05em;
+  text-rendering: optimizeLegibility; 
+}
+
+h1 {
+  font-size: em(30);
+  line-height: em(36,30);
+}

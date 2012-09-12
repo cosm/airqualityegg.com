@@ -1,0 +1,17 @@
+.branding-logo {
+  float: left;
+  margin: em(7,30) em(15,30) em(7,30) 0;
+
+  a {
+    display: block;
+    padding: em(15,30) em(15,30) em(15,30) em(68,30);
+    background: transparent url('/assets/img/branding-logo.png') no-repeat center left;
+  }
+}
+
+.branding-tagline {
+  margin: em(36) 0 0 0;
+  color: $color-blue;
+  font-weight: bold;
+  text-transform: lowercase;
+}
