@@ -21,7 +21,23 @@
 
 <body>
 
-  <%= yield %>
+  <header class="app-header" role="banner">
+    <div class="app-header-inner grid-row">
+      <h1 class="branding-logo">
+        <a class="link-dark" href="/">Air Quality Egg</a>      
+      </h1>
+      <p class="branding-tagline">Community-led sensing network</p>
+    </div>
+  </header>
+
+  <div class="app-content grid-row" role="main">
+
+    <%= yield %>
+    
+  </div>
+
+  <footer class="app-footer grid-row" role="contentinfo">
+  </footer>
 
   <!-- scripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>

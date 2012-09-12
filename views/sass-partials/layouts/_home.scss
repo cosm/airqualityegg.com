@@ -1,0 +1,18 @@
+//
+// CLAIMING
+//
+
+.claiming {
+  position: absolute;
+  top: - em(54);
+  right: em( $site-gutter );
+}
+
+.claiming-input {
+  width: em(224);
+  padding-right: em(36);
+}
+
+.claiming-button {
+  margin-left: - em(24);
+}

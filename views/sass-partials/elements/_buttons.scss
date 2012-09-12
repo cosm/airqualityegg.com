@@ -1,0 +1,27 @@
+.button {
+  padding: em(6) em(35);
+  font-size: 1em;
+  font-weight: bold;
+  line-height: em($font-baseline);
+  text-transform: uppercase;
+  color: #fff;
+  background-color: $color-blue-dark;
+  border: none;
+  @include border-radius( em(20) );
+  $transition: background-color .15s ease-out;
+  @include transition($transition);
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: lighten($color-blue-dark,15);
+  }
+
+  &:active {
+    background-color: lighten($color-blue-dark,5);
+  }
+}

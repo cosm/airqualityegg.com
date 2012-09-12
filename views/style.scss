@@ -1,5 +1,22 @@
+// GLOBAL
+
 @import "sass-partials/normalize";
-@import "sass-partials/defaults";
+@import "sass-partials/variables";
 @import "sass-partials/helpers";
+@import "sass-partials/grid";
+@import "sass-partials/typography";
+@import "sass-partials/base";
+
+// ELEMENTS
+
+@import "sass-partials/elements/buttons";
+@import "sass-partials/elements/forms";
+
+// LAYOUTS
+
+@import "sass-partials/layouts/header";
+@import "sass-partials/layouts/home";
+
+// PRINT
 
 @import "sass-partials/print";

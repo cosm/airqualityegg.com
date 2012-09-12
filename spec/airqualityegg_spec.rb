@@ -22,14 +22,14 @@ describe AirQualityEgg, :type => :request do
         to_return(:status => 200, :body => MultiJson.dump({"datastreams"=>[], "feed_id"=>101, "apikey"=>"HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g"}))
       visit '/'
       fill_in 'serial', :with => '123'
-      click_button 'Submit'
+      click_button 'Add my egg'
       current_path.should == "/egg/101/edit"
     end
 
     it 'should handle no serial' do
       visit '/'
       fill_in 'serial', :with => ''
-      click_button 'Submit'
+      click_button 'Add my egg'
       page.should have_content("Please enter a serial number")
       current_path.should == "/"
     end
@@ -40,7 +40,7 @@ describe AirQualityEgg, :type => :request do
         to_return(:status => 404, :body => MultiJson.dump({"title"=>"Not found", "errors"=>"I'm sorry we are unable to find the device you are looking for."}))
       visit '/'
       fill_in 'serial', :with => '123'
-      click_button 'Submit'
+      click_button 'Add my egg'
       page.should have_content("Egg not found")
       current_path.should == "/"
     end
@@ -68,7 +68,7 @@ describe AirQualityEgg, :type => :request do
           to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's London based egg", :id => 101).to_json)
         visit '/'
         fill_in 'serial', :with => '123'
-        click_button 'Submit'
+        click_button 'Add my egg'
       end
 
       it 'should render the form' do
