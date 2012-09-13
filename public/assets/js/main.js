@@ -50,5 +50,35 @@ var AQE = (function ( $ ) {
     google.maps.event.addDomListener(window, 'load', initialize);
   }
 
+  //
+  // LOCATION PICKER
+  //
+
+  var locpic = new GMapsLatLonPicker(),
+      locpicker = $(".gllpLatlonPicker").first(),
+      locsearch = $(".gllpSearchField").first();
+
+  if ( locpicker.length ) {
+    
+    locpic.init( locpicker );
+
+    // search
+    $(".gllpSearchField").keydown(function(event){
+      if(event.keyCode == 13){
+        locpic.performSearch( $(this).val(), false );
+        event.preventDefault();
+      }
+    });
+
+    // HTML5 geolocation
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        $(".gllpLatitude").val(position.coords.latitude);
+        $(".gllpLongitude").val(position.coords.longitude);
+      });
+    }
+
+  }
+
 })( jQuery );
 

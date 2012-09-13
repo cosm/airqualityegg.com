@@ -3,7 +3,7 @@
 //
 
 .input {
-  width: em(230);
+  width: em(250);
   max-width: 100%;
   padding: em(5) .5em;
   font-size: 1em;
@@ -85,4 +85,14 @@
   font-weight: bold;
   text-transform: uppercase;
   color: $color-blue-dark;
+}
+
+//
+// SEARCH FIELD
+//
+
+.input.input-search {
+  width: em(226);
+  padding-left: em(30);
+  background: transparent url('/assets/img/search-icon.png') no-repeat em(8) center;
 }
