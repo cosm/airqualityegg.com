@@ -25,6 +25,12 @@ var AQE = (function ( $ ) {
         map.setCenter(pos);
       });
     }
+
+    if ( mapmarkers && mapmarkers.length ) {
+      for ( var x = 0, len = mapmarkers.length; x < len; x++ ) {
+        addMapMarker( mapmarkers[x].lat, mapmarkers[x].lat );
+      }
+    }
   }
 
   function handleNoGeolocation() {
