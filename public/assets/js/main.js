@@ -57,7 +57,7 @@ var AQE = (function ( $ ) {
 
   var locpicker = $(".gllpLatlonPicker").first();
 
-  if ( locpicker ) {
+  if ( locpicker.length ) {
     
     (new GMapsLatLonPicker()).init( locpicker );
 

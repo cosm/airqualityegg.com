@@ -199,9 +199,7 @@ var GMapsLatLonPicker = (function() {
       $(document).bind("gllp_perform_search", function(event, object) {
         performSearch( $(object).attr('string'), true );
       });
-    },
-
-    setPosition: setPosition
+    }
 
   }
   
