@@ -38,6 +38,8 @@ class AirQualityEgg < Sinatra::Base
   # Home page
   get '/' do
     @error = session.delete(:error)
+    response = Cosm::Client.get(feeds_url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
+    @feeds = Cosm::SearchResult.new(response.body)
     erb :home
   end
 
@@ -91,6 +93,10 @@ class AirQualityEgg < Sinatra::Base
 
   def feed_url(feed_id)
     "#{$api_url}/v2/feeds/#{feed_id}.json"
+  end
+
+  def feeds_url
+    "#{$api_url}/v2/feeds.json?tag=device%3Atype%3Dairqualityegg&amp;mapped=true"
   end
 
   def product_url
