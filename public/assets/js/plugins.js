@@ -110,7 +110,7 @@ var GMapsLatLonPicker = (function() {
       {"address": string},
       function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-          $(_self.vars.cssID + ".gllpZoom").val(12);
+          $(_self.vars.cssID + ".gllpZoom").val(13);
           _self.vars.map.setZoom( parseInt($(_self.vars.cssID + ".gllpZoom").val()) );
           setPosition( results[0].geometry.location );
         } else {

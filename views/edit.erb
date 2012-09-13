@@ -1,6 +1,6 @@
 
 
-<h1 class="heading-narrow">Your Egg's Information</h1>
+<h1 class="page-header heading-narrow">Your Egg's Information</h1>
 <form method="post" action="/egg/<%= @feed.id %>/update">
   <label class="field">
     <span class="label">Title</span>
@@ -26,15 +26,15 @@
       <span class="label">Location</span>
       <input class="input input-search gllpSearchField" type="text">
     </label>
-    <input class="button gllpSearchButton" type="button" value="Search">
-    <input class="button gllpSearchButton" type="button" value="Find Me">
+    <input class="button button-small gllpSearchButton" type="button" value="Search">
 
     <div class="gllpMap"></div>
 
-    <input name="location-latitude" type="hidden" class="gllpLatitude">
-    <input name="location-longitude" type="hidden" class="gllpLongitude">
+    <input name="location-latitude" type="hidden" class="gllpLatitude" value="51.5081289">
+    <input name="location-longitude" type="hidden" class="gllpLongitude" value="-0.12800500000003012">
     <input name="location-name" type="hidden" class="gllpLocationName">
-    <input name="location-zoom "type="hidden" class="gllpZoom"/>
+    <input name="location-zoom" type="hidden" class="gllpZoom" value="2">
+    <input name="location-saved" type="hidden" value="0">
   </fieldset>
 
   <input class="button" type="submit" name="submit" value="Save">

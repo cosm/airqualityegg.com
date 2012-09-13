@@ -3,6 +3,8 @@
 //
 
 .input {
+  width: em(230);
+  max-width: 100%;
   padding: em(5) .5em;
   font-size: 1em;
   line-height: em($font-baseline);
@@ -50,8 +52,19 @@
 //
 
 .field {
+  position: relative;
   display: block;
+  padding-left: em(118);
   margin-bottom: em(18);
+  @include clearfix();
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: em(100);
+    line-height: em(30);
+  }
 }
 
 //
@@ -61,6 +74,7 @@
 .label {
   display: block;
   margin-bottom: em(5);
-  font-size: em(18);
   font-weight: bold;
+  text-transform: uppercase;
+  color: $color-blue-dark;
 }
