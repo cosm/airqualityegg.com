@@ -28,8 +28,8 @@
 
     <div class="gllpMap"></div>
 
-    <input name="location_lat" type="hidden" class="gllpLatitude" value="<%= @feed.location_lat || 51.5081289 %>">
-    <input name="location_lon" type="hidden" class="gllpLongitude" value="<%= @feed.location_lon || -0.12800500000003012 %>">
+    <input name="location_lat" type="hidden" class="gllpLatitude" value="<%= @feed.location_lat || "51.5081289" %>">
+    <input name="location_lon" type="hidden" class="gllpLongitude" value="<%= @feed.location_lon || "-0.12800500000003012" %>">
     <input name="location_name" type="hidden" class="gllpLocationName">
     <input name="location_zoom" type="hidden" class="gllpZoom" value="2">
     <input name="location_saved" type="hidden" value="0">
