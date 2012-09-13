@@ -3,9 +3,8 @@
     <input class="input claiming-input" type="text" id="serial" name="serial" placeholder="Serial Number">
     <input class="button claiming-button" type="submit" name="submit" value="Add my egg">
   </form>
-  <p class="claiming-error<% if !@error %> hidden<% end %>"><%= @error %></p>
+  <p class="bubble bubble-error claiming-error<% if !@error %> hidden<% end %>"><%= @error %></p>
 </section>
-
 <div class="map" id="map_canvas" style="width:100%;height:680px;"></div>
 
 <script>

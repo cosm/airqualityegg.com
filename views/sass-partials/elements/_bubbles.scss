@@ -1,0 +1,53 @@
+.bubble {
+  position: relative;
+  padding: em(8) 1em;
+  background: $color-blue-lightest;
+  font-weight: bold;
+  color: $color-blue-dark;
+  text-shadow: 0 1px 0 #fff;
+  border: em(2) solid $color-blue-dark;
+  @include border-radius( em(10) );
+  @include box-shadow( 0 2px 3px rgba(0,0,0,.15) );
+
+  &:after,
+  &:before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    bottom: 100%;
+    border: solid transparent;
+    pointer-events: none;
+  }
+
+  &:after {
+    left: em(18);
+    margin-left: - em(5);
+    border-bottom-color: $color-blue-lightest;
+    border-width: em(5);
+  }
+
+  &:before {
+    left: em(18);
+    margin-left: - em(8);
+    border-bottom-color: $color-blue-dark;
+    border-width: em(8);
+  }
+
+  // ERROR
+
+  &.bubble-error {
+    background: $color-red;
+    color: #fff;
+    text-shadow: 0 1px 0 $color-red-dark;
+    border-color: $color-red-dark;
+
+    &:after {
+      border-bottom-color: $color-red;
+    }
+
+    &:before {
+      border-bottom-color: $color-red-dark;
+    }
+  }
+}

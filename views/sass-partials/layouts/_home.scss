@@ -6,6 +6,7 @@
   position: absolute;
   top: - em(54);
   right: em( $site-gutter );
+  z-index: 10;
 }
 
 .claiming-input {
@@ -15,4 +16,11 @@
 
 .claiming-button {
   margin-left: - em(24);
+}
+
+.claiming-error {
+  position: absolute;
+  top: em(25);
+  left: 0;
+  max-width: 100%;
 }
