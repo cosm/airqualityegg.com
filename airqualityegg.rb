@@ -71,7 +71,15 @@ class AirQualityEgg < Sinatra::Base
   post '/egg/:id/update' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
     redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
-    feed = Cosm::Feed.new(:title => params[:title], :id => feed_id, :private => false)
+    feed = Cosm::Feed.new({
+      :title => params[:title],
+      :id => feed_id,
+      :private => false,
+      :location_ele => params[:location_ele],
+      :location_lat => params[:location_lat],
+      :location_lon => params[:location_lon],
+      :location_exposure => params[:location_exposure]
+    })
     response = Cosm::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
   end

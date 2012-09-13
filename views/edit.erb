@@ -1,5 +1,3 @@
-
-
 <h1 class="page-header heading-narrow">Your Egg's Information</h1>
 <form method="post" action="/egg/<%= @feed.id %>/update">
   <label class="field">
@@ -9,15 +7,15 @@
 
   <label class="field">
     <span class="label">Context</span>
-    <select name="context">
-      <option value="inside">Inside</option>
-      <option value="outside">Outside</option>
+    <select name="location_exposure">
+      <option value="indoor" <%= "selected" if @feed.location_exposure == 'indoor' %>>Indoor</option>
+      <option value="outdoor" <%= "selected" if @feed.location_exposure == 'outdoor' %>>Outdoor</option>
     </select>
   </label>
 
   <label class="field">
     <span class="label">Elevation</span>
-    <input class="input" type="text" name="elevation" value="">
+    <input class="input" type="text" name="location_ele" value="<%= @feed.location_ele %>">
   </label>
 
   <!-- location picker -->
@@ -30,11 +28,11 @@
 
     <div class="gllpMap"></div>
 
-    <input name="location-latitude" type="hidden" class="gllpLatitude" value="51.5081289">
-    <input name="location-longitude" type="hidden" class="gllpLongitude" value="-0.12800500000003012">
-    <input name="location-name" type="hidden" class="gllpLocationName">
-    <input name="location-zoom" type="hidden" class="gllpZoom" value="2">
-    <input name="location-saved" type="hidden" value="0">
+    <input name="location_lat" type="hidden" class="gllpLatitude" value="<%= @feed.location_lat || 51.5081289 %>">
+    <input name="location_lon" type="hidden" class="gllpLongitude" value="<%= @feed.location_lon || -0.12800500000003012 %>">
+    <input name="location_name" type="hidden" class="gllpLocationName">
+    <input name="location_zoom" type="hidden" class="gllpZoom" value="2">
+    <input name="location_saved" type="hidden" value="0">
   </fieldset>
 
   <input class="button" type="submit" name="submit" value="Save">
