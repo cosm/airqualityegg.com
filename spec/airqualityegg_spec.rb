@@ -4,6 +4,9 @@ describe AirQualityEgg, :type => :request do
 
   before do
     WebMock.reset!
+    map_request = stub_request(:get, "http://api.cosm.com/v2/feeds.json?amp;mapped=true&tag=device:type=airqualityegg").
+      with(:headers => {'Content-Type'=>'application/json', 'X-Apikey'=>'apikey'}).
+      to_return(:status => 200, :body => '{"itemsPerPage":100,"results":[],"totalResults":0,"startIndex":0}', :headers => {})
   end
 
   it "should render the homepage" do
