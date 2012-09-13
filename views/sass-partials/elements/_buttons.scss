@@ -5,6 +5,7 @@
   line-height: em($font-baseline);
   text-transform: uppercase;
   color: #fff;
+  text-shadow: 0 1px 0 $color-blue-darkest;
   background-color: $color-blue-dark;
   border: none;
   @include border-radius( em(20) );

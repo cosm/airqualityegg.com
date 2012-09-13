@@ -1,6 +1,41 @@
-<h1><%= @feed.title %></h1>
+
+
+<h1 class="page-header heading-narrow">Your Egg's Information</h1>
 <form method="post" action="/egg/<%= @feed.id %>/update">
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title" value="<%= @feed.title %>">
-  <input type="submit" name="submit" value="Save">
+  <label class="field">
+    <span class="label">Title</span>
+    <input class="input" type="text" name="title" value="<%= @feed.title %>">
+  </label>
+
+  <label class="field">
+    <span class="label">Context</span>
+    <select name="context">
+      <option value="inside">Inside</option>
+      <option value="outside">Outside</option>
+    </select>
+  </label>
+
+  <label class="field">
+    <span class="label">Elevation</span>
+    <input class="input" type="text" name="elevation" value="">
+  </label>
+
+  <!-- location picker -->
+  <fieldset class="field gllpLatlonPicker" id="edit-location-picker">
+    <label>
+      <span class="label">Location</span>
+      <input class="input input-search gllpSearchField" type="text">
+    </label>
+    <input class="button button-small gllpSearchButton" type="button" value="Search">
+
+    <div class="gllpMap"></div>
+
+    <input name="location-latitude" type="hidden" class="gllpLatitude" value="51.5081289">
+    <input name="location-longitude" type="hidden" class="gllpLongitude" value="-0.12800500000003012">
+    <input name="location-name" type="hidden" class="gllpLocationName">
+    <input name="location-zoom" type="hidden" class="gllpZoom" value="2">
+    <input name="location-saved" type="hidden" value="0">
+  </fieldset>
+
+  <input class="button" type="submit" name="submit" value="Save">
 </form>

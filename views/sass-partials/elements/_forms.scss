@@ -3,9 +3,12 @@
 //
 
 .input {
-  padding: em(5) 1em;
+  width: em(230);
+  max-width: 100%;
+  padding: em(5) .5em;
   font-size: 1em;
   line-height: em($font-baseline);
+  text-shadow: 0 1px 0 #fff;
   color: $color-body;
   background-color: $color-blue-lightest;
   border: 1px solid $color-blue-light-alt;
@@ -42,4 +45,36 @@
     font-weight: bold;
     -moz-transition: color .15s ease-out;
   }
+}
+
+//
+// FIELD
+//
+
+.field {
+  position: relative;
+  display: block;
+  padding-left: em(118);
+  margin-bottom: em(18);
+  @include clearfix();
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: em(100);
+    line-height: em(30);
+  }
+}
+
+//
+// LABEL
+//
+
+.label {
+  display: block;
+  margin-bottom: em(5);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $color-blue-dark;
 }

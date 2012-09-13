@@ -11,3 +11,13 @@ h1 {
   font-size: em(30);
   line-height: em(36,30);
 }
+
+.page-header {
+  margin-top: em(5,30);
+  margin-bottom: 1em;
+}
+
+.heading-narrow {
+  font-weight: 300;
+  color: $color-blue-dark-alt;
+}
