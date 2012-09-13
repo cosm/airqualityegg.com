@@ -11,7 +11,16 @@ describe AirQualityEgg, :type => :request do
 
   it "should render the homepage" do
     visit '/'
-    page.should have_content "Air Quality Egg"
+    page.find('.branding-logo').should have_content "Air Quality Egg"
+    page.should have_content "Community-led sensing network"
+  end
+
+  it "should render the homepage even if the feed search fails" do
+    WebMock.reset!
+    map_request = stub_request(:get, "http://api.cosm.com/v2/feeds.json?amp;mapped=true&tag=device:type=airqualityegg").
+      to_return(:status => 500, :body => 'error', :headers => {})
+    visit '/'
+    page.find('.branding-logo').should have_content "Air Quality Egg"
   end
 
   describe 'registering' do

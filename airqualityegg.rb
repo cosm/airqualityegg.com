@@ -38,8 +38,7 @@ class AirQualityEgg < Sinatra::Base
   # Home page
   get '/' do
     @error = session.delete(:error)
-    response = Cosm::Client.get(feeds_url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
-    @feeds = Cosm::SearchResult.new(response.body)
+    @feeds = find_egg_feeds
     erb :home
   end
 
@@ -89,6 +88,13 @@ class AirQualityEgg < Sinatra::Base
     [session['response_json']['feed_id'], session['response_json']['apikey']]
   rescue
     redirect_with_error('Egg not found')
+  end
+
+  def find_egg_feeds
+    response = Cosm::Client.get(feeds_url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
+    @feeds = Cosm::SearchResult.new(response.body)
+  rescue
+    @feeds = Cosm::SearchResult.new()
   end
 
   def feed_url(feed_id)
