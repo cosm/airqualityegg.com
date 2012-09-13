@@ -199,20 +199,11 @@ var GMapsLatLonPicker = (function() {
       $(document).bind("gllp_perform_search", function(event, object) {
         performSearch( $(object).attr('string'), true );
       });
-    }
+    },
+
+    setPosition: setPosition
 
   }
   
   return publicfunc;
-});
-
-
-$(document).ready( function() {
-  $(".gllpLatlonPicker").each(function() {
-    (new GMapsLatLonPicker()).init( $(this) );
-  });
-});
-
-$(document).bind("location_changed", function(event, object) {
-  console.log("changed: " + $(object).attr('id') );
 });

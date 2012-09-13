@@ -47,8 +47,29 @@ var AQE = (function ( $ ) {
     });
   }
 
-  if ( $(".home-map") ) {
+  if ( $(".home-map").length ) {
     google.maps.event.addDomListener(window, 'load', initialize);
   }
 
+  //
+  // LOCATION PICKER
+  //
+
+  var locpicker = $(".gllpLatlonPicker").first();
+
+  if ( locpicker ) {
+    
+    (new GMapsLatLonPicker()).init( locpicker );
+
+    // HTML5 geolocation
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        $(".gllpLatitude").val(position.coords.latitude);
+        $(".gllpLongitude").val(position.coords.longitude);
+      });
+    }
+
+  }
+
 })( jQuery );
+
