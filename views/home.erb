@@ -9,10 +9,6 @@
 
 
 <script>
-  var mapmarkers = [
-    <% @feeds.results.each do |feed| %>
-      {'lat': <%= feed.location_lat %>, 'long':<%= feed.location_lon %>},
-    <% end %>
-  ];
+  var mapmarkers = <%= @map_markers %>;
 </script>
 

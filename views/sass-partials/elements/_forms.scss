@@ -14,13 +14,14 @@
   border: 1px solid $color-blue-light-alt;
   @include border-radius( em(5) );
   @include box-shadow( inset 0 2px 3px rgba(0,0,0,.15) );
-  $transition: background-color .15s ease-out, box-shadow .15s ease-out;
+  $transition: background-color .15s ease-out, box-shadow .15s ease-out, border-color .15s ease-out;
   @include transition($transition);
   -webkit-font-smoothing: antialiased;
 
   &:focus {
     outline: 0;
     background-color: #fff;
+    border-color: $color-blue;
     @include box-shadow( inset 0 1px 3px rgba(0,0,0,.15) );
 
     &::-webkit-input-placeholder {
@@ -53,17 +54,24 @@
 
 .field {
   position: relative;
+  line-height: em(30);
   display: block;
-  padding-left: em(118);
-  margin-bottom: em(18);
+  padding-left: em(100);
+  margin-bottom: em(24);
   @include clearfix();
 
   .label {
     position: absolute;
     top: 0;
     left: 0;
-    width: em(100);
+    width: em(82);
     line-height: em(30);
+  }
+
+  .help {
+    margin-top: 0;
+    color: $color-blue;
+    font-weight: bold;
   }
 }
 

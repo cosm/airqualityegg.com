@@ -25,6 +25,12 @@ var AQE = (function ( $ ) {
         map.setCenter(pos);
       });
     }
+
+    if ( mapmarkers && mapmarkers.length ) {
+      for ( var x = 0, len = mapmarkers.length; x < len; x++ ) {
+        addMapMarker( mapmarkers[x].lat, mapmarkers[x].lng );
+      }
+    }
   }
 
   function handleNoGeolocation() {
@@ -36,13 +42,13 @@ var AQE = (function ( $ ) {
     var myLatlng = new google.maps.LatLng(lat, lng);
     var marker = new google.maps.Marker({
       position: myLatlng,
-      map: map,
-      title: 'Hello World!'
+      map: map
     });
   }
 
-  if ( $(".home-map") ) {
+  if ( $(".home-map").length ) {
     google.maps.event.addDomListener(window, 'load', initialize);
   }
 
 })( jQuery );
+
