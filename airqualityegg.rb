@@ -39,6 +39,7 @@ class AirQualityEgg < Sinatra::Base
   get '/' do
     @error = session.delete(:error)
     @feeds = find_egg_feeds
+    @map_markers = collect_map_markers(@feeds)
     erb :home
   end
 
@@ -92,13 +93,21 @@ class AirQualityEgg < Sinatra::Base
 
   def find_egg_feeds
     response = Cosm::Client.get(feeds_url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
-    @feeds = Cosm::SearchResult.new(response.body)
+    @feeds = Cosm::SearchResult.new(response.body).results
   rescue
-    @feeds = Cosm::SearchResult.new()
+    @feeds = Cosm::SearchResult.new().results
   end
 
   def feed_url(feed_id)
     "#{$api_url}/v2/feeds/#{feed_id}.json"
+  end
+
+  def collect_map_markers(feeds)
+    MultiJson.dump(
+      feeds.collect do |feed|
+        {:lat => feed.location_lat, :lng => feed.location_lon, :title => feed.title}.delete_if {|_,v| v.blank?}
+      end
+    )
   end
 
   def feeds_url

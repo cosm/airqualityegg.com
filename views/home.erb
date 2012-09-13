@@ -30,7 +30,7 @@
       });
     }
 
-    <% @feeds.results.each do |feed| %>
+    <% @feeds.each do |feed| %>
       addMapMarker(<%= feed.location_lat %>, <%= feed.location_lon %>);
     <% end %>
   }
