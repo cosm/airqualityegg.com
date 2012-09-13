@@ -42,7 +42,8 @@ var AQE = (function ( $ ) {
     var myLatlng = new google.maps.LatLng(lat, lng);
     var marker = new google.maps.Marker({
       position: myLatlng,
-      map: map
+      map: map,
+      icon: '/assets/img/egg-icon.png'
     });
   }
 
