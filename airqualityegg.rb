@@ -120,7 +120,9 @@ class AirQualityEgg < Sinatra::Base
   end
 
   def find_egg_feeds(feed = nil)
-    response = Cosm::Client.get(feeds_url(feed), :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
+    url = feeds_url(feed)
+    logger.info("GET: #{url} - geosearch")
+    response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
     @feeds = Cosm::SearchResult.new(response.body).results
   rescue
     @feeds = Cosm::SearchResult.new().results
