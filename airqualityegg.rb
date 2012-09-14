@@ -102,6 +102,8 @@ class AirQualityEgg < Sinatra::Base
     @co = @feed.datastreams.detect{|d| d.id == "co"}
     @temperature = @feed.datastreams.detect{|d| d.id == "temperature"}
     @humidity = @feed.datastreams.detect{|d| d.id == "humidity"}
+    @feeds = find_egg_feeds_near(@feed)
+    @map_markers = collect_map_markers(@feeds)
     erb :show
   end
 
@@ -113,8 +115,12 @@ class AirQualityEgg < Sinatra::Base
     redirect_with_error('Egg not found')
   end
 
-  def find_egg_feeds
-    response = Cosm::Client.get(feeds_url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
+  def find_egg_feeds_near(feed)
+    find_egg_feeds(feed)
+  end
+
+  def find_egg_feeds(feed = nil)
+    response = Cosm::Client.get(feeds_url(feed), :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
     @feeds = Cosm::SearchResult.new(response.body).results
   rescue
     @feeds = Cosm::SearchResult.new().results
@@ -132,8 +138,9 @@ class AirQualityEgg < Sinatra::Base
     )
   end
 
-  def feeds_url
-    "#{$api_url}/v2/feeds.json?tag=device%3Atype%3Dairqualityegg&amp;mapped=true"
+  def feeds_url(feed)
+    feeds_near = "&lat=#{feed.location_lat}&lon=#{feed.location_lon}&distance=#{1000.0}" if feed && feed.location_lat && feed.location_lon
+    "#{$api_url}/v2/feeds.json?tag=device%3Atype%3Dairqualityegg&mapped=true#{feeds_near}"
   end
 
   def product_url
