@@ -78,7 +78,8 @@ class AirQualityEgg < Sinatra::Base
       :location_ele => params[:location_ele],
       :location_lat => params[:location_lat],
       :location_lon => params[:location_lon],
-      :location_exposure => params[:location_exposure]
+      :location_exposure => params[:location_exposure],
+      :tags => "device:type=airqualityegg"
     })
     response = Cosm::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
