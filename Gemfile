@@ -6,6 +6,10 @@ gem 'sass'
 gem 'newrelic_rpm'
 gem 'thin'
 
+group :development do
+  gem 'foreman'
+end
+
 group :development, :test do
   gem 'sinatra-contrib'
   gem 'capybara'

@@ -6,9 +6,19 @@ Air Quality Egg dashboard
 
 ### Development
 
+#### Add environment variables to .env file
+
+
+```bash
+# Sample .env file
+PRODUCT_ID=xxxxxx
+API_KEY=xxxxxxx
+```
+
 `gem install bundler`
 
 `bundle install`
 
-`API_KEY=<cosm_api_key> PRODUCT_ID=<cosm_product_id> bundle exec rackup config.ru`
+`bundle exec foreman start`
 
+Visit http://localhost:5000
