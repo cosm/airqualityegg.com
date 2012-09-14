@@ -207,7 +207,9 @@ var GMapsLatLonPicker = (function() {
       var latlng = new google.maps.LatLng(lat, lng);
       _self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
       setPosition(latlng);
-    }
+    },
+
+    performSearch : performSearch
 
   }
   
