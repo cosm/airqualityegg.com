@@ -20,6 +20,7 @@ var AQE = (function ( $ ) {
     if ( $(".dashboard-map").length && mapmarkers && mapmarkers.length ) {
       var dashpos = new google.maps.LatLng(mapmarkers[0].lat, mapmarkers[0].lng);
       map.setCenter(dashpos);
+      map.setZoom(5);
     }
     // Try HTML5 geolocation
     else if(navigator.geolocation) {
