@@ -61,7 +61,8 @@ var AQE = (function ( $ ) {
 
   var locpic = new GMapsLatLonPicker(),
       locpicker = $(".gllpLatlonPicker").first(),
-      locsearch = $(".gllpSearchField").first();
+      locsearch = $(".gllpSearchField").first(),
+      locsaved = parseInt($(".location-saved").first().val());
 
   if ( locpicker.length ) {
 
@@ -76,10 +77,12 @@ var AQE = (function ( $ ) {
     });
 
     // HTML5 geolocation
-    if(navigator.geolocation) {
+    if(!locsaved && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         $(".gllpLatitude").val(position.coords.latitude);
         $(".gllpLongitude").val(position.coords.longitude);
+        $(".gllpZoom").val(13);
+        locpic.custom_redraw();
       });
     }
 
