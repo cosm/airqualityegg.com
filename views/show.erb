@@ -1,8 +1,70 @@
-<h1 class="page-header heading-narrow"><%= @feed.title %></h1>
-<p><%= string_to_time(@feed.updated) %></p>
-<ul>
-<% @feed.datastreams.each do |datastream| %>
-  <li><%= datastream.id %>: <%= datastream.current_value %></li>
-<% end %>
-</ul>
+<section class="claiming">
+  <form method="post" action="/register">
+    <input class="input claiming-input" type="text" id="serial" name="serial" placeholder="Serial Number">
+    <input class="button claiming-button" type="submit" name="submit" value="Add my egg">
+  </form>
+  <p class="bubble bubble-error claiming-error<% if !@error %> hidden<% end %>"><%= @error %></p>
+</section>
+
+<section class="dashboard-current">
+  <img class="dashboard-current-prop" src="/assets/img/prop-bigegg.png">
+  <div class="dashboard-current-values clearfix">
+    
+    <div class="current current-left current-no2">
+      <h2 class="current-id">NO2</h2>
+      <h3 class="current-id-full">Nitrogen Dioxide</h3>
+      <div class="current-value">
+        <p class="current-value-measure"><%= @no2 ? @no2.current_value : "<small class='current-value-unavailable'>Not available yet.</small>" %></p>
+        <span class="current-gauge"></span>
+        <span class="current-gauge-filling current-gauge-green"></span>
+      </div>
+    </div>
+
+    <div class="current current-left current-co">
+      <h2 class="current-id">CO</h2>
+      <h3 class="current-id-full">Carbon Monoxide</h3>
+      <div class="current-value">
+        <p class="current-value-measure"><%= @co ? @co.current_value : "<small class='current-value-unavailable'>Not available yet.</small>" %></p>
+        <span class="current-gauge"></span>
+        <span class="current-gauge-filling current-gauge-green"></span>
+      </div>
+    </div>
+
+    <div class="current current-right current-temperature">
+      <h2 class="current-id heading-narrow">Temperature</h2>
+      <div class="current-value">
+        <p class="current-value-measure"><%= @temperature ? @temperature.current_value : "<small class='current-value-unavailable'>Not available yet.</small>" %></p>
+        <span class="current-termo"></span>
+        <span class="current-termo-filling"></span>
+      </div>
+    </div>
+    
+    <div class="current current-right current-humidity">
+      <h2 class="current-id heading-narrow">Humidity</h2>
+      <div class="current-value">
+        <p class="current-value-measure"><%= @humidity ? @humidity.current_value : "<small class='current-value-unavailable'>Not available yet.</small>" %></p>
+        <span class="current-drop"></span>
+        <span class="current-drop-filling"></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="dashboard-updated">Last updated <%= string_to_time(@feed.updated) %></p>
+</section>
+
+<script>
+  var mapmarkers = [{"feed_id":"<%= @feed.id %>","lat":"<%= @feed.location_lat %>","lng":"<%= @feed.location_lon %>"}];
+</script>
+
+<section class="dashboard-map-container">
+  <div class="map dashboard-map" id="map_canvas" style="width:100%;height:500px;"></div>
+</section>
+
+<section class="dashboard-metadata">
+  <h1 class="metadata-feed-title"><%= @feed.title %></h1>
+  <h2 class="metadata-title">Exposure</h2>
+  <p class="metadata-value"><%= @feed.location_exposure %></p>
+  <h2 class="metadata-title">Elevation</h2>
+  <p class="metadata-value"><%= @feed.location_ele %></p>
+</section>
 

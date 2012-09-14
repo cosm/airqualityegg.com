@@ -1,0 +1,200 @@
+//
+// CURRENT VALUES
+//
+
+.dashboard-current {
+  position: relative;
+  min-height: em(580);
+  padding-right: em($site-gutter);
+  padding-left: em($site-gutter + 25);
+  margin-top: - em($site-gutter/2);
+  margin-left: - em($site-gutter);
+  margin-right: - em($site-gutter);
+  background-color: $color-blue-lightest;
+}
+
+.dashboard-current-prop {
+  position: absolute;
+  top: 0;
+  left: - em(50);
+  max-width: none;
+  z-index: 1;
+}
+
+.dashboard-current-values {
+  position: relative;
+  padding-top: em(145);
+  z-index: 5;
+}
+
+.current {
+  float: left;
+  width: 20.9%;
+
+  &.current-right {
+    width: 19.5%;
+  }
+
+  & + .current {
+    margin-left: 6.32%;
+  }
+
+  &.current-temperature {
+    margin-left: 9.72%;
+  }
+
+  &.current-humidity {
+    margin-left: 2.91%;
+  }
+}
+
+.current-id {
+  margin: 0;
+  font-size: em(60);
+  line-height: 1em;
+  color: $color-blue-dark;
+  text-transform: uppercase;
+  text-indent: -.05em;
+
+  .current-right & {
+    margin-top: em(27,30);
+    font-size: em(30);
+    line-height: 1em;
+    text-transform: none;
+    color: $color-blue-dark-alt;
+  }
+}
+
+.current-id-full {
+  margin: 0;
+  font-size: em(14);
+  font-weight: normal;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: $color-blue-alt;
+}
+
+.current-value {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: em(90);
+  margin-top: em(45);
+
+  .current-right & {
+    margin-top: em(61);
+  }
+}
+
+.current-value-measure {
+  position: relative;
+  top: 50%;
+  display: block;
+  margin: 0;
+  font-size: em(24);
+  line-height: em(30,24);
+  font-weight: bold;
+  color: $color-blue-dark;
+  text-align: right;
+  border-top: 1px solid $color-blue-dark-alt;
+  z-index: 15;
+}
+
+.current-gauge,
+.current-gauge-filling {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: em(20);
+}
+
+.current-gauge {
+  height: 100%;
+  background-color: $color-blue-light-alt;
+  z-index: 5;
+}
+
+.current-gauge-filling {
+  height: 50%;
+  z-index: 10;
+
+  &.current-gauge-green {
+    background-color: $color-green;
+  }
+
+  &.current-gauge-yellow {
+    background-color: $color-yellow;
+  }
+
+  &.current-gauge-red {
+    background-color: $color-red;
+  }
+}
+
+.current-value-unavailable {
+  color: $color-blue;
+}
+
+.dashboard-updated {
+  position: absolute;
+  bottom: 0;
+  right: em($site-gutter);
+  z-index: 5;
+  font-size: em(13);
+  font-weight: bold;
+  line-height: em(18,13);
+  text-transform: uppercase;
+  color: $color-blue;
+}
+
+//
+// MAP
+//
+
+.dashboard-map-container {
+  float: left;
+  width: 65%;
+  margin-top: em(50);
+  margin-left: - em($site-gutter);
+}
+
+//
+// METADATA
+//
+
+.dashboard-metadata {
+  float: right;
+  width: 35%;
+  margin-top: em(50);
+  text-align: right;
+}
+
+.metadata-feed-title {
+  display: block;
+  margin: 0;
+  font-size: em(24);
+  line-height: em(26,24);
+  padding-top: em(5,24);
+  color: $color-blue-dark;
+  text-transform: uppercase;
+  border-top: 3px solid $color-blue-dark;
+}
+
+.metadata-title {
+  margin: em(30) 0 0 0;
+  font-size: em(14);
+  line-height: em(18);
+  font-weight: bold;
+  color: $color-blue;
+  text-transform: uppercase;
+}
+
+.metadata-value {
+  margin: 0;
+  font-size: em(36);
+  line-height: 1em;
+  font-weight: 300;
+  color: $color-blue-dark-alt;
+  text-transform: uppercase;
+  letter-spacing: -.05em;
+}

@@ -98,6 +98,10 @@ class AirQualityEgg < Sinatra::Base
   get '/egg/:id' do
     response = Cosm::Client.get(feed_url(params[:id]), :headers => {"X-ApiKey" => $api_key})
     @feed = Cosm::Feed.new(response.body)
+    @no2 = @feed.datastreams.detect{|d| d.id == "no2"}
+    @co = @feed.datastreams.detect{|d| d.id == "co"}
+    @temperature = @feed.datastreams.detect{|d| d.id == "temperature"}
+    @humidity = @feed.datastreams.detect{|d| d.id == "humidity"}
     erb :show
   end
 
