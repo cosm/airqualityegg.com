@@ -24,3 +24,46 @@
   left: 0;
   max-width: 100%;
 }
+
+//
+// MAP
+//
+
+.home-map-container {
+  position: relative;
+  margin-top: - em( $site-gutter/2 );
+  margin-left: - em( $site-gutter );
+  margin-right: - em( $site-gutter );
+  z-index: 5;
+}
+
+//
+// WHAT IS IT
+//
+
+.home-whatisit {
+  position: relative;
+  height: em(260);
+  padding-left: em(330);
+  margin: 1em 0;
+}
+
+.home-whatisit-prop {
+  position: absolute;
+  top: 0;
+  left: - em(65);
+}
+
+.home-whatisit-title {
+  padding-top: em(80,30);
+  margin: 0;
+  margin-bottom: em(5,30);
+}
+
+.home-whatisit-claim {
+  margin: 0;
+  font-size: em(28);
+  line-height: em(36,28);
+  color: $color-blue-alt;
+  letter-spacing: -.05em;
+}

@@ -5,7 +5,16 @@
   </form>
   <p class="bubble bubble-error claiming-error<% if !@error %> hidden<% end %>"><%= @error %></p>
 </section>
-<div class="map home-map" id="map_canvas" style="width:100%;height:680px;"></div>
+
+<section class="home-map-container">
+  <div class="map home-map" id="map_canvas" style="width:100%;height:680px;"></div>
+</section>
+
+<section class="home-section home-whatisit">
+  <img class="home-whatisit-prop" src="/assets/img/prop-eggs.png">
+  <h1 class="home-whatisit-title">What is it?</h1>
+  <p class="home-whatisit-claim">A community-led air quality sensing network that gives people a way to participate in the conversation about air quality.</p>
+</section>
 
 
 <script>
