@@ -116,7 +116,7 @@ describe AirQualityEgg, :type => :request do
 
     it 'should render the dashboard' do
       visit '/egg/101'
-      page.find('h1.page-header').should have_content("Joe's Air Quality Egg")
+      page.find('h1.metadata-feed-title').should have_content("Joe's Air Quality Egg")
       current_path.should == '/egg/101'
     end
   end

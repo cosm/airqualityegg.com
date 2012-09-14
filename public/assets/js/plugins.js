@@ -49,7 +49,8 @@ var GMapsLatLonPicker = (function() {
       mapTypeControl: false,
       disableDoubleClickZoom: true,
       zoomControlOptions: true,
-      streetViewControl: false
+      streetViewControl: false,
+      scrollwheel: false
     },
     strings : {
       markerText : "Drag this Marker", 

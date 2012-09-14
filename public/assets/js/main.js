@@ -16,9 +16,13 @@ var AQE = (function ( $ ) {
     map = new google.maps.Map(document.getElementById('map_canvas'),
         mapOptions);
     handleNoGeolocation();
-
+    
+    if ( $(".dashboard-map").length && mapmarkers && mapmarkers.length ) {
+      var dashpos = new google.maps.LatLng(mapmarkers[0].lat, mapmarkers[0].lng);
+      map.setCenter(dashpos);
+    }
     // Try HTML5 geolocation
-    if(navigator.geolocation) {
+    else if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = new google.maps.LatLng(position.coords.latitude,
                                           position.coords.longitude);
@@ -48,11 +52,14 @@ var AQE = (function ( $ ) {
       icon: '/assets/img/egg-icon.png'
     });
     google.maps.event.addListener(marker, 'click', function() {
-      window.location.pathname = '/egg/'+ feed_id;
+      var target = '/egg/'+ feed_id;
+      if ( window.location.pathname != target ) {
+        window.location.pathname = target;
+      }
     });
   }
 
-  if ( $(".home-map").length ) {
+  if ( $(".home-map").length || $(".dashboard-map").length ) {
     google.maps.event.addDomListener(window, 'load', initialize);
   }
 
