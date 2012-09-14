@@ -8,16 +8,21 @@ Air Quality Egg dashboard
 
 #### Add environment variables to .env file
 
-
 ```bash
 # Sample .env file
 PRODUCT_ID=xxxxxx
 API_KEY=xxxxxxx
 ```
 
+#### Install gem bundler
+
 `gem install bundler`
 
+#### Install rubygems
+
 `bundle install`
+
+#### Start webserver
 
 `bundle exec foreman start`
 
