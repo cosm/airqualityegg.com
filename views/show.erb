@@ -1,5 +1,5 @@
-<h1 class="page-header"><%= @feed.title %></h1>
-<h2><%= string_to_time(@feed.updated) %></h2>
+<h1 class="page-header heading-narrow"><%= @feed.title %></h1>
+<p><%= string_to_time(@feed.updated) %></p>
 <ul>
 <% @feed.datastreams.each do |datastream| %>
   <li><%= datastream.id %>: <%= datastream.current_value %></li>
