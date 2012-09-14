@@ -113,7 +113,7 @@ class AirQualityEgg < Sinatra::Base
   def collect_map_markers(feeds)
     MultiJson.dump(
       feeds.collect do |feed|
-        {:lat => feed.location_lat, :lng => feed.location_lon, :title => feed.title}.delete_if {|_,v| v.blank?}
+        {:feed_id => feed.id, :lat => feed.location_lat, :lng => feed.location_lon, :title => feed.title}.delete_if {|_,v| v.blank?}
       end
     )
   end
