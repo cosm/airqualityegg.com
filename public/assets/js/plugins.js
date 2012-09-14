@@ -201,9 +201,13 @@ var GMapsLatLonPicker = (function() {
       });
     },
 
-    setPosition: setPosition,
-
-    performSearch: performSearch
+    custom_redraw : function() {
+      var lat = $(_self.vars.cssID + ".gllpLatitude").val();
+      var lng = $(_self.vars.cssID + ".gllpLongitude").val();
+      var latlng = new google.maps.LatLng(lat, lng);
+      _self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
+      setPosition(latlng);
+    }
 
   }
   
