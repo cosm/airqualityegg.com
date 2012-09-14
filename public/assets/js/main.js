@@ -26,8 +26,6 @@ var AQE = (function ( $ ) {
       });
     }
 
-    console.log(mapmarkers);
-
     if ( mapmarkers && mapmarkers.length ) {
       for ( var x = 0, len = mapmarkers.length; x < len; x++ ) {
         addMapMarker( mapmarkers[x].lat, mapmarkers[x].lng, mapmarkers[x].feed_id );
