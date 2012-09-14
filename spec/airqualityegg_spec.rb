@@ -107,4 +107,17 @@ describe AirQualityEgg, :type => :request do
     end
   end
 
+  describe 'dashboard' do
+    before do
+      stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
+        with(:headers => { 'X-ApiKey' => 'apikey' }).
+        to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
+    end
+
+    it 'should render the dashboard' do
+      visit '/egg/101'
+      page.find('h1.page-header').should have_content("Joe's Air Quality Egg")
+      current_path.should == '/egg/101'
+    end
+  end
 end

@@ -5,6 +5,7 @@ require 'sinatra/reloader' if Sinatra::Base.development?
 require 'sass'
 require 'cosm-rb'
 
+
 class AirQualityEgg < Sinatra::Base
 
   configure do
@@ -28,6 +29,14 @@ class AirQualityEgg < Sinatra::Base
 
   configure :development do
     register Sinatra::Reloader
+  end
+
+  helpers do
+    def string_to_time(timestamp)
+      Time.parse(timestamp).strftime("%d %b %Y %H:%M:%S")
+    rescue
+      ''
+    end
   end
 
   # Render css from scss
