@@ -10,7 +10,8 @@ var AQE = (function ( $ ) {
   function initialize() {
     var mapOptions = {
       zoom: 3,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel: false
     };
     map = new google.maps.Map(document.getElementById('map_canvas'),
         mapOptions);
