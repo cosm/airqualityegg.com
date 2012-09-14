@@ -53,7 +53,7 @@
 </section>
 
 <script>
-  var mapmarkers = [{"feed_id":"<%= @feed.id %>","lat":"<%= @feed.location_lat %>","lng":"<%= @feed.location_lon %>"}];
+  var mapmarkers = <%= @map_markers %>;
 </script>
 
 <section class="dashboard-map-container">
