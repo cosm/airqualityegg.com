@@ -91,7 +91,7 @@ describe AirQualityEgg, :type => :request do
       it 'should allow updating the egg and render the dashboard' do
         stub_request(:put, "http://api.cosm.com/v2/feeds/101.json").
           with(:headers => { 'X-ApiKey' => 'HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g' },
-               :body => {"id" => 101,"title" => "Joe's London based egg","version" => "1.0.0", "private" => "false", "location" => {"lat" => "51.5081289", "lon" => "-0.12800500000003012", "exposure" => "indoor"}}).
+               :body => {"id" => 101,"title" => "Joe's London based egg","version" => "1.0.0", "private" => "false", "location" => {"lat" => "51.5081289", "lon" => "-0.12800500000003012", "exposure" => "indoor"}, "tags" => ["device:type=airqualityegg"]}).
           to_return(:status => 200, :body => "")
         fill_in 'title', :with => "Joe's London based egg"
         click_button 'Save'
