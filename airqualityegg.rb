@@ -139,7 +139,7 @@ class AirQualityEgg < Sinatra::Base
   end
 
   def feeds_url(feed)
-    feeds_near = "&lat=#{feed.location_lat}&lon=#{feed.location_lon}&distance=#{1000.0}" if feed && feed.location_lat && feed.location_lon
+    feeds_near = (feed && feed.location_lat && feed.location_lon) ? "&lat=#{feed.location_lat}&lon=#{feed.location_lon}&distance=#{1000}" : ''
     "#{$api_url}/v2/feeds.json?tag=device%3Atype%3Dairqualityegg&mapped=true#{feeds_near}"
   end
 
