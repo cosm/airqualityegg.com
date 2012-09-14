@@ -2,20 +2,17 @@
 // LOCATION PICKER
 //
 
-.gllpMap,
-.map  { 
-  width: 500px;
-  height: 250px;
-
-  img {
-    max-width: none;
-  }
-}
-
 .edit-map {
+  width: 100%;
+  height: 250px;
   margin-top: 1em;
 }
 
-.gllpLatlonPicker .help {
-  margin: 0;
+.gllpLatlonPicker {
+  width: em(600);
+  max-width: 100%;
+
+  .help {
+    margin: 0;
+  }
 }

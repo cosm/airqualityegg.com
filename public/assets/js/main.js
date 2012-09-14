@@ -28,7 +28,7 @@ var AQE = (function ( $ ) {
 
     if ( mapmarkers && mapmarkers.length ) {
       for ( var x = 0, len = mapmarkers.length; x < len; x++ ) {
-        addMapMarker( mapmarkers[x].lat, mapmarkers[x].lng );
+        addMapMarker( mapmarkers[x].lat, mapmarkers[x].lng, mapmarkers[x].feed_id );
       }
     }
   }
@@ -38,12 +38,16 @@ var AQE = (function ( $ ) {
     map.setCenter(pos);
   }
 
-  function addMapMarker(lat, lng) {
+  function addMapMarker(lat, lng, id) {
     var myLatlng = new google.maps.LatLng(lat, lng);
+    var feed_id = id;
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
       icon: '/assets/img/egg-icon.png'
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      window.location.pathname = '/egg/'+ feed_id;
     });
   }
 

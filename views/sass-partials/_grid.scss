@@ -3,9 +3,9 @@
 //
 
 .grid-row {
-  width: 100%;
-  max-width: 1133px;
-  min-width: 840px;
+  max-width: #{$site-maxwidth - ($site-gutter * 2)}px;
+  min-width: 320px;
+  padding: 0 em($site-gutter);
   margin: 0 auto;
   @include clearfix();
   

@@ -41,19 +41,32 @@ a {
 // MAIN
 
 .app-header {
+  padding: 0 em($site-gutter);
   background-color: $color-background;
 }
 
 .app-header-inner {
-  padding: 0 em($site-gutter);
+  position: relative;
+  margin: 0 auto;
+  max-width: #{$site-maxwidth - ($site-gutter * 2)}px;
 }
 
 .app-footer,
 .app-content {
-  padding: em($site-gutter/2) em($site-gutter);
+  padding-top: em($site-gutter/2);
+  padding-bottom: em($site-gutter/2);
 }
 
 .app-content {
   position: relative;
   background-color: $color-background;
+}
+
+// MAP
+
+.gllpMap,
+.map  { 
+  img {
+    max-width: none;
+  }
 }
