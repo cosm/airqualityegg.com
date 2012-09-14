@@ -9,7 +9,7 @@ var AQE = (function ( $ ) {
 
   function initialize() {
     var mapOptions = {
-      zoom: 6,
+      zoom: 3,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -34,7 +34,7 @@ var AQE = (function ( $ ) {
   }
 
   function handleNoGeolocation() {
-    var pos = new google.maps.LatLng(51.51333,-0.088947);
+    var pos = new google.maps.LatLng(30,-20);
     map.setCenter(pos);
   }
 
@@ -60,7 +60,7 @@ var AQE = (function ( $ ) {
       locsearch = $(".gllpSearchField").first();
 
   if ( locpicker.length ) {
-    
+
     locpic.init( locpicker );
 
     // search
