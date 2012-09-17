@@ -97,5 +97,24 @@ var AQE = (function ( $ ) {
 
   }
 
+  //
+  // CLAIMING FIELD
+  //
+
+  $(".claiming-form").submit( function (event) {
+    var $this   = $(this),
+        $input  = $this.find(".claiming-input"),
+        $error  = $(".claiming-error");
+
+    if ( $input.val() == "" ) {
+      event.preventDefault();
+      $error.html("Please enter a serial number").removeClass("hidden");
+    }
+  });
+
+  $(".claiming-input").blur( function (event) {
+    $(".claiming-error").addClass("hidden");
+  });
+
 })( jQuery );
 
