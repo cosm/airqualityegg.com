@@ -9,4 +9,19 @@
   margin: em(36) 0 0 0;
 }
 
+//
+// DASHBOARD
+//
+
+
+.dashboard-current {
+  padding-left: em($site-gutter + 25);
+}
+
+.current-id {
+  .current-right & {
+    text-align: left;
+  }
+}
+
 } // END OF MEDIA QUERY

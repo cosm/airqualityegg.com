@@ -22,7 +22,7 @@ $site-gutter: $site-gutter * 2;
 
 .dashboard-current {
   padding-right: em($site-gutter);
-  padding-left: em($site-gutter + 25);
+  padding-left: em($site-gutter);
   margin-top: - em($site-gutter/2);
   margin-left: - em($site-gutter);
   margin-right: - em($site-gutter);
@@ -115,6 +115,49 @@ $site-gutter: $site-gutter * 2;
 .gllpLatlonPicker {
   width: em(600);
 }
+
+//
+// DASHBOARD
+//
+
+.dashboard-current-values {
+  padding-top: em(145);
+}
+
+.dashboard-current-prop {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 42.5%;
+  max-width: none;
+  z-index: 1;
+}
+
+.current {
+  float: left;
+  width: 20.9%;
+  margin-bottom: 0;
+
+  &.current-right {
+
+    width: 19.5%;
+  }
+
+  & + .current {
+    margin-left: 6.32%;
+  }
+
+  &.current-temperature {
+    margin-left: 9.72%;
+  }
+
+  &.current-humidity {
+    margin-left: 2.91%;
+  }
+}
+
+
+
 
 
 } // END OF MEDIA QUERY
