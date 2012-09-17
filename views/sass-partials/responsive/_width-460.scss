@@ -1,0 +1,35 @@
+@media only screen and (min-width: em(460,16)) {
+
+//
+// HEADER
+//
+
+.branding-logo {
+  a {
+    padding-left: em(68,30);
+  }
+}
+
+.claiming {
+  width: em(410);
+}
+
+.claiming-button {
+  margin-left: - em(24);
+}
+
+.claiming-input {
+  width: em(224);
+  padding-right: em(36);
+}
+
+} // END OF MEDIA QUERY
+
+@media only screen and (max-width: em(460,16)) {
+
+.claiming-button {
+  padding-left: em(15);
+  padding-right: em(15);
+}
+
+} // END OF MEDIA QUERY

@@ -1,44 +1,14 @@
 //
-// CLAIMING
-//
-
-.claiming {
-  position: absolute;
-  top: - em(54);
-  right: em( $site-gutter );
-  z-index: 10;
-}
-
-.claiming-input {
-  width: em(224);
-  padding-right: em(36);
-}
-
-.claiming-button {
-  margin-left: - em(24);
-}
-
-.claiming-error {
-  position: absolute;
-  top: em(25);
-  left: 0;
-  max-width: 100%;
-}
-
-//
 // MAP
 //
 
 .home-map-container {
   position: relative;
-  margin-top: - em( $site-gutter/2 );
-  margin-left: - em( $site-gutter );
-  margin-right: - em( $site-gutter );
   z-index: 5;
 }
 
 .home-map {
-  max-height: 90vh;
+  max-height: em(400);
 }
 
 //

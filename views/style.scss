@@ -20,6 +20,12 @@
 @import "sass-partials/layouts/edit";
 @import "sass-partials/layouts/dashboard";
 
+// RESPONSIVE
+
+@import "sass-partials/responsive/width-460";
+@import "sass-partials/responsive/width-800";
+@import "sass-partials/responsive/width-1024";
+
 // PRINT
 
 @import "sass-partials/print";

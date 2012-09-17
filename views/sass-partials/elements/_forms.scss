@@ -56,7 +56,7 @@
   position: relative;
   line-height: em(30);
   display: block;
-  padding-left: em(100);
+  padding-left: em(120);
   margin-bottom: em(24);
   @include clearfix();
 
@@ -64,7 +64,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: em(82);
+    width: em(100);
     line-height: em(30);
   }
 

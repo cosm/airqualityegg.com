@@ -3,11 +3,12 @@
 //
 
 .grid-row {
-  max-width: #{$site-maxwidth - ($site-gutter * 2)}px;
-  min-width: 320px;
+  max-width: #{$site-maxwidth - ($site-gutter * 4)}px;
   padding: 0 em($site-gutter);
   margin: 0 auto;
   @include clearfix();
+
+  // responsive styles in width-800
   
   .grid-row {
     min-width: 0;

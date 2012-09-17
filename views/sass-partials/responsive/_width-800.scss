@@ -1,0 +1,91 @@
+@media only screen and (min-width: em(800,16)) {
+
+//
+// DOUBLE GUTTER
+//
+
+$site-gutter: $site-gutter * 2;
+
+.grid-row {
+  padding: 0 em($site-gutter);
+}
+
+.app-header {
+  padding: 0 em($site-gutter);
+}
+
+.app-footer,
+.app-content {
+  padding-top: em($site-gutter/2);
+  padding-bottom: em($site-gutter/2);
+}
+
+.dashboard-current {
+  padding-right: em($site-gutter);
+  padding-left: em($site-gutter + 25);
+  margin-top: - em($site-gutter/2);
+  margin-left: - em($site-gutter);
+  margin-right: - em($site-gutter);
+}
+
+.dashboard-updated {
+  right: em($site-gutter);
+}
+
+.dashboard-map-container {
+  margin-left: - em($site-gutter);
+}
+
+.home-map-container {
+  margin-left: - em( $site-gutter );
+  margin-right: - em( $site-gutter );
+}
+
+//
+// HEADER
+//
+
+.app-header-inner {
+  text-align: left;
+}
+
+.branding-logo {
+  // responsive styles in _width-800.scss
+  display: block;
+  float: left;
+  margin: em(7,30) em(15,30) em(7,30) 0;
+}
+
+.branding-tagline {
+  display: none;
+}
+
+//
+// CLAIMING
+//
+
+.claiming {
+  position: absolute;
+  top: - em(54);
+  right: em( $site-gutter );
+  margin: 0;
+  text-align: left;
+}
+
+//
+// MAP
+//
+
+.home-map-container {
+  margin-left: - em( $site-gutter );
+  margin-right: - em( $site-gutter );
+  margin-top: - em( $site-gutter/2 );
+}
+
+.home-map {
+  max-height: none;
+  max-height: 90vw;
+}
+
+
+} // END OF MEDIA QUERY
