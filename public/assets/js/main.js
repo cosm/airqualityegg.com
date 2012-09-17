@@ -106,7 +106,7 @@ var AQE = (function ( $ ) {
         $input  = $this.find(".claiming-input"),
         $error  = $(".claiming-error");
 
-    if ( $input.val() == "" ) {
+    if ( $input.val() === "" ) {
       event.preventDefault();
       $error.html("Please enter a serial number").removeClass("hidden");
     }
