@@ -17,27 +17,23 @@
 
 .home-whatisit {
   position: relative;
-  height: em(260);
-  padding-left: em(330);
   margin: 1em 0;
 }
 
 .home-whatisit-prop {
-  position: absolute;
-  top: 0;
-  left: - em(65);
+  display: none;
 }
 
 .home-whatisit-title {
-  padding-top: em(80,30);
+  padding-top: em(15,30);
   margin: 0;
   margin-bottom: em(5,30);
 }
 
 .home-whatisit-claim {
   margin: 0;
-  font-size: em(28);
-  line-height: em(36,28);
+  font-size: em(20);
+  line-height: em(30,20);
   color: $color-blue-alt;
   letter-spacing: -.05em;
 }

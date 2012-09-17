@@ -1,6 +1,23 @@
 @media only screen and (min-width: em(460,16)) {
 
 //
+// FORMS
+//
+
+.field {
+  padding-left: em(120);
+  @include clearfix();
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: em(100);
+  }
+}
+
+
+//
 // HEADER
 //
 
@@ -21,6 +38,31 @@
 .claiming-input {
   width: em(224);
   padding-right: em(36);
+}
+
+//
+// HOME
+//
+
+.home-whatisit {
+  min-height: em(260);
+  padding-left: em(100);
+}
+
+.home-whatisit-title {
+  padding-top: em(35,30);
+}
+
+.home-whatisit-claim {
+  font-size: em(28);
+  line-height: em(36,28);
+}
+
+.home-whatisit-prop {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: - em(250);
 }
 
 } // END OF MEDIA QUERY

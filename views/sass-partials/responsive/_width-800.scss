@@ -87,5 +87,34 @@ $site-gutter: $site-gutter * 2;
   max-height: 90vw;
 }
 
+//
+// HOME
+//
+
+.home-whatisit {
+  padding-left: 31.35%;
+}
+
+.home-whatisit-title {
+  padding-top: em(65,30);
+}
+
+.home-whatisit-prop {
+  left: auto;
+  right: 75.5%;
+}
+
+//
+// EDIT EGG
+//
+
+.edit-egg {
+  max-width: none;
+}
+
+.gllpLatlonPicker {
+  width: em(600);
+}
+
 
 } // END OF MEDIA QUERY

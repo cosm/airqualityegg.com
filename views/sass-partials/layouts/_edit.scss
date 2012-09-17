@@ -1,3 +1,12 @@
+.edit-egg {
+  max-width: em(480);
+  margin: 0 auto;
+
+  .button[type="submit"] {
+    margin: 0 auto;
+  }
+}
+
 //
 // LOCATION PICKER
 //
@@ -9,7 +18,6 @@
 }
 
 .gllpLatlonPicker {
-  width: em(600);
   max-width: 100%;
 
   .help {
