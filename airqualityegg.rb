@@ -82,6 +82,7 @@ class AirQualityEgg < Sinatra::Base
     redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
     feed = Cosm::Feed.new({
       :title => params[:title],
+      :description => params[:description],
       :id => feed_id,
       :private => false,
       :location_ele => params[:location_ele],
