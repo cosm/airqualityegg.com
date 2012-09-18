@@ -1,5 +1,5 @@
-<h1 class="page-header heading-narrow">Your Egg's Information</h1>
 <form class="edit-egg" method="post" action="/egg/<%= @feed.id %>/update">
+  <h1 class="page-header heading-narrow">Your Egg's Information</h1>
   <p class="field">
     <label class="label" for="title">Title</label>
     <input class="input" type="text" name="title" id="title" value="<%= @feed.title %>" autofocus>
@@ -7,7 +7,7 @@
 
   <p class="field">
     <label class="label" for="description">Description</label>
-    <textarea class="input" type="text" name="description" id="description"><%= @feed.description %></textarea>
+    <textarea class="input" type="text" name="description" id="description" rows="5"><%= @feed.description %></textarea>
   </p>
 
   <p class="field">

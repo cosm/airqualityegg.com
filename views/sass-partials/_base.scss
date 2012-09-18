@@ -1,6 +1,7 @@
 // DEFAULTS
 
 body {
+  min-width: em(320);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: em($font-basesize, 16);
   line-height: em($font-baseline);
@@ -49,7 +50,7 @@ a {
 .app-header-inner {
   position: relative;
   margin: 0 auto;
-  max-width: #{$site-maxwidth - ($site-gutter * 2)}px;
+  max-width: #{$site-maxwidth - ($site-gutter * 4)}px;
 }
 
 .app-footer,

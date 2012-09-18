@@ -1,0 +1,195 @@
+@media only screen and (min-width: em(800,16)) {
+
+//
+// DOUBLE GUTTER
+//
+
+$site-gutter: $site-gutter * 2;
+
+.grid-row {
+  padding: 0 em($site-gutter);
+}
+
+.app-header {
+  padding: 0 em($site-gutter);
+}
+
+.app-footer,
+.app-content {
+  padding-top: em($site-gutter/2);
+  padding-bottom: em($site-gutter/2);
+}
+
+.dashboard-current {
+  padding-right: em($site-gutter);
+  padding-left: em($site-gutter);
+  margin-top: - em($site-gutter/2);
+  margin-left: - em($site-gutter);
+  margin-right: - em($site-gutter);
+}
+
+.dashboard-updated {
+  right: em($site-gutter);
+}
+
+.dashboard-map-container {
+  margin-left: - em($site-gutter);
+}
+
+.home-map-container {
+  margin-left: - em( $site-gutter );
+  margin-right: - em( $site-gutter );
+}
+
+//
+// HEADER
+//
+
+.app-header-inner {
+  text-align: left;
+}
+
+.branding-logo {
+  // responsive styles in _width-800.scss
+  display: block;
+  float: left;
+  margin: em(7,30) em(15,30) em(7,30) 0;
+}
+
+.branding-tagline {
+  display: none;
+}
+
+//
+// CLAIMING
+//
+
+.claiming {
+  position: absolute;
+  top: - em(54);
+  right: em( $site-gutter );
+  margin: 0;
+  text-align: left;
+}
+
+//
+// MAP
+//
+
+.home-map-container {
+  margin-left: - em( $site-gutter );
+  margin-right: - em( $site-gutter );
+  margin-top: - em( $site-gutter/2 );
+}
+
+.home-map {
+  max-height: none;
+  max-height: 90vw;
+}
+
+//
+// HOME
+//
+
+.home-whatisit {
+  padding-left: 31.35%;
+}
+
+.home-whatisit-title {
+  padding-top: em(65,30);
+}
+
+.home-whatisit-prop {
+  left: auto;
+  right: 75.5%;
+}
+
+//
+// EDIT EGG
+//
+
+.edit-egg {
+  max-width: none;
+}
+
+.gllpLatlonPicker {
+  width: em(600);
+}
+
+//
+// DASHBOARD
+//
+
+.dashboard-current {
+  min-height: em(540);
+}
+
+.dashboard-current-values {
+  padding-top: em(145);
+}
+
+.dashboard-current-prop {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 42.5%;
+  max-width: none;
+  z-index: 1;
+}
+
+.current {
+  float: left;
+  width: 20.9%;
+  margin-bottom: 0;
+
+  &.current-right {
+    width: 19.5%;
+  }
+
+  & + .current {
+    margin-left: 6.32%;
+  }
+
+  &.current-temperature {
+    margin-left: 9.72%;
+  }
+
+  &.current-humidity {
+    margin-left: 2.91%;
+  }
+}
+
+.current-left + .current-left,
+.current-right + .current-right {
+  float: left;
+}
+
+.current-id {
+  .current-right & {
+    margin-top: em(27,30);
+    text-align: center;
+  }
+}
+
+.current-value {
+  margin-top: em(45);
+
+  .current-right & {
+    margin-top: em(61);
+  }
+}
+
+.current-value-unavailable {
+  font-size: 70%;
+  color: $color-blue;
+}
+
+.dashboard-map {
+  max-height: none;
+}
+
+
+
+
+
+} // END OF MEDIA QUERY
