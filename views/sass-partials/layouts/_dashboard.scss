@@ -4,9 +4,9 @@
 
 .dashboard-current {
   position: relative;
-  min-height: em(580);
   padding-right: em($site-gutter);
-  padding-left: em($site-gutter + 25);
+  padding-left: em($site-gutter);
+  padding-bottom: em(40);
   margin-top: - em($site-gutter/2);
   margin-left: - em($site-gutter);
   margin-right: - em($site-gutter);
@@ -14,41 +14,25 @@
 }
 
 .dashboard-current-prop {
-  position: absolute;
-  top: 0;
-  right: 42.5%;
-  max-width: none;
-  z-index: 1;
+  display:none;
 }
 
 .dashboard-current-values {
   position: relative;
-  padding-top: em(145);
+  padding-top: em(30);
   z-index: 5;
 }
 
+// CURRENT
+
 .current {
-  float: left;
-  width: 20.9%;
-
-  &.current-right {
-    width: 19.5%;
-  }
-
-  & + .current {
-    margin-left: 6.32%;
-  }
-
-  &.current-temperature {
-    margin-left: 9.72%;
-  }
-
-  &.current-humidity {
-    margin-left: 2.91%;
-  }
+  position: relative;
+  margin-bottom: em(35);
+  min-height: em(90);
 }
 
 .current-id {
+  width: 47.5%;
   margin: 0;
   font-size: em(60);
   line-height: 1em;
@@ -57,8 +41,7 @@
   text-indent: -.05em;
 
   .current-right & {
-    margin-top: em(27,30);
-    font-size: em(30);
+    font-size: em(24);
     line-height: 1em;
     text-transform: none;
     color: $color-blue-dark-alt;
@@ -66,6 +49,7 @@
 }
 
 .current-id-full {
+  width: 47.5%;
   margin: 0;
   font-size: em(14);
   font-weight: normal;
@@ -75,16 +59,15 @@
 }
 
 .current-value {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: block;
-  width: 100%;
+  width: 47.5%;
   height: em(90);
-  margin-top: em(45);
-
-  .current-right & {
-    margin-top: em(61);
-  }
 }
+
+// GAUGES
 
 .current-value-measure {
   position: relative;
@@ -92,16 +75,21 @@
   display: block;
   margin: 0;
   font-size: em(24);
-  line-height: em(30,24);
+  line-height: em(28,24);
   font-weight: bold;
   color: $color-blue-dark;
   text-align: right;
   border-top: 1px solid $color-blue-dark-alt;
   z-index: 15;
+
+  .current-temperature &,
+  .current-humidity & {
+    padding-left: em(25,24);
+  }
 }
 
 .current-gauge,
-.current-gauge-filling {
+.current-gauge-filling{
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,6 +105,7 @@
 .current-gauge-filling {
   height: 50%;
   z-index: 10;
+  background-color: $color-blue-dark-alt;
 
   &.current-gauge-green {
     background-color: $color-green;
@@ -132,8 +121,14 @@
 }
 
 .current-value-unavailable {
+  display: block;
+  padding-top: .1em;
+  font-size: 60%;
+  line-height: 1.1em;
   color: $color-blue;
 }
+
+// OTHER
 
 .dashboard-updated {
   position: absolute;
@@ -152,10 +147,11 @@
 //
 
 .dashboard-map-container {
-  float: left;
-  width: 65%;
-  margin-top: em(50);
-  margin-left: - em($site-gutter);
+  margin-top: em(30);
+}
+
+.dashboard-map {
+  max-height: em(350);
 }
 
 //
@@ -163,10 +159,7 @@
 //
 
 .dashboard-metadata {
-  float: right;
-  width: 35%;
-  margin-top: em(50);
-  text-align: right;
+  margin-top: em(30);
 }
 
 .metadata-feed-title {

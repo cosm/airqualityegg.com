@@ -1,0 +1,134 @@
+@media only screen and (min-width: em(460,16)) {
+
+//
+// FORMS
+//
+
+.field {
+  padding-left: em(120);
+  @include clearfix();
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: em(100);
+  }
+}
+
+
+//
+// HEADER
+//
+
+.branding-logo {
+  a {
+    padding-left: em(68,30);
+  }
+}
+
+.claiming {
+  width: em(410);
+}
+
+.claiming-button {
+  margin-left: - em(24);
+}
+
+.claiming-input {
+  width: em(224);
+  padding-right: em(36);
+}
+
+//
+// HOME
+//
+
+.home-whatisit {
+  min-height: em(260);
+  padding-left: em(100);
+}
+
+.home-whatisit-title {
+  padding-top: em(35,30);
+}
+
+.home-whatisit-claim {
+  font-size: em(28);
+  line-height: em(36,28);
+}
+
+.home-whatisit-prop {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: - em(250);
+}
+
+//
+// DASHBOARD
+//
+
+.current {
+  float: left;
+  width: 45%;
+}
+
+.current-left + .current-left,
+.current-right + .current-right {
+  float: right;
+}
+
+.current-id {
+  width: auto;
+
+  .current-right & {
+    font-size: em(30);
+  }
+}
+
+.current-id-full {
+  width: auto;
+}
+
+.current-value {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  max-width: em(215);
+  margin-top: em(15);
+}
+
+.dashboard-map-container {
+  float: left;
+  width: 65%;
+  margin-top: em(50);
+  margin-left: - em($site-gutter);
+}
+
+.dashboard-map {
+  max-height: em(400);
+}
+
+.dashboard-metadata {
+  float: right;
+  width: 35%;
+  margin-top: em(50);
+  text-align: right;
+}
+
+
+
+
+
+} // END OF MEDIA QUERY
+
+@media only screen and (max-width: em(460,16)) {
+
+.claiming-button {
+  padding-left: em(15);
+  padding-right: em(15);
+}
+
+} // END OF MEDIA QUERY

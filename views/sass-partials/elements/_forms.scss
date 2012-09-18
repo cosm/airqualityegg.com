@@ -56,15 +56,9 @@
   position: relative;
   line-height: em(30);
   display: block;
-  padding-left: em(100);
   margin-bottom: em(24);
-  @include clearfix();
 
   .label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: em(82);
     line-height: em(30);
   }
 
