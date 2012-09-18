@@ -6,7 +6,7 @@ body {
   font-size: em($font-basesize, 16);
   line-height: em($font-baseline);
   color: $color-body;
-  background-color: $color-background-alt;
+  background: $color-background-alt url('/assets/img/egg-shell.jpg') repeat top left;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -68,6 +68,22 @@ a {
 
 .gllpMap,
 .map  { 
+  background: $color-background-alt url('/assets/img/loader-bg.gif') no-repeat center center !important;
+
+  &:before {
+    content: "Looking for eggs...";
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin: 0;
+    margin-top: - em(45);
+    text-align: center;
+    font-weight: bold;
+    color: $color-blue;
+    text-shadow: 0 1px 0 #fff;
+  }
+
   img {
     max-width: none;
   }
