@@ -11,6 +11,7 @@
   margin-left: - em($site-gutter);
   margin-right: - em($site-gutter);
   background-color: $color-blue-lightest;
+  text-shadow: 0 1px 0 #fff;
 }
 
 .dashboard-current-prop {
@@ -73,6 +74,7 @@
   position: relative;
   top: 50%;
   display: block;
+  padding-left: em(25,24);
   margin: 0;
   font-size: em(24);
   line-height: em(28,24);
@@ -81,11 +83,6 @@
   text-align: right;
   border-top: 1px solid $color-blue-dark-alt;
   z-index: 15;
-
-  .current-temperature &,
-  .current-humidity & {
-    padding-left: em(25,24);
-  }
 }
 
 .current-gauge,
@@ -190,4 +187,10 @@
   color: $color-blue-dark-alt;
   text-transform: uppercase;
   letter-spacing: -.05em;
+}
+
+.metadata-description {
+  text-transform: none;
+  font-size: em(24);
+  line-height: 1.2em;
 }
