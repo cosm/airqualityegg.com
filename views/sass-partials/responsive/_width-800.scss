@@ -120,6 +120,10 @@ $site-gutter: $site-gutter * 2;
 // DASHBOARD
 //
 
+.dashboard-current {
+  min-height: em(540);
+}
+
 .dashboard-current-values {
   padding-top: em(145);
 }
@@ -139,7 +143,6 @@ $site-gutter: $site-gutter * 2;
   margin-bottom: 0;
 
   &.current-right {
-
     width: 19.5%;
   }
 
@@ -154,6 +157,35 @@ $site-gutter: $site-gutter * 2;
   &.current-humidity {
     margin-left: 2.91%;
   }
+}
+
+.current-left + .current-left,
+.current-right + .current-right {
+  float: left;
+}
+
+.current-id {
+  .current-right & {
+    margin-top: em(27,30);
+    text-align: center;
+  }
+}
+
+.current-value {
+  margin-top: em(45);
+
+  .current-right & {
+    margin-top: em(61);
+  }
+}
+
+.current-value-unavailable {
+  font-size: 70%;
+  color: $color-blue;
+}
+
+.dashboard-map {
+  max-height: none;
 }
 
 
