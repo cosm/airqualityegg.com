@@ -88,3 +88,19 @@ a {
     max-width: none;
   }
 }
+
+// FOOTER
+
+.cosm-logo {
+  text-align: right;
+  font-weight: bold;
+  color: $color-blue-alt;
+  text-shadow: 0 1px 0 #fff;
+
+  .ir {
+    display: inline-block;
+    width: em(171);
+    height: em(42);
+    background: transparent url('/assets/img/logo-cosm-ratio1.png') no-repeat left center;
+  }
+}
