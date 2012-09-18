@@ -88,5 +88,7 @@
 .input.input-search {
   width: em(226);
   padding-left: em(30);
-  background: transparent url('/assets/img/search-icon.png') no-repeat em(8) center;
+  background-image: url('/assets/img/search-icon.png');
+  background-position: em(8) center;
+  background-repeat: no-repeat;
 }
