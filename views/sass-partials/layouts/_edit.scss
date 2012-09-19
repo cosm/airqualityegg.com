@@ -25,3 +25,12 @@
     line-height: 1.3em;
   }
 }
+
+.find-me {
+  display: inline-block;
+  padding-left: em(30);
+  font-weight: bold;
+  background-image: url('/assets/img/locateme-icon.png');
+  background-position: em(8) center;
+  background-repeat: no-repeat;
+}

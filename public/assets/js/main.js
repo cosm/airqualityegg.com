@@ -57,6 +57,7 @@ var AQE = (function ( $ ) {
       var target = '/egg/'+ feed_id;
       if ( window.location.pathname != target ) {
         window.location.pathname = target;
+        $(".map").next(".map-overlay").fadeIn(150);
       }
     });
   }
@@ -72,7 +73,15 @@ var AQE = (function ( $ ) {
   var locpic = new GMapsLatLonPicker(),
       locpicker = $(".gllpLatlonPicker").first(),
       locsearch = $(".gllpSearchField").first(),
-      locsaved = parseInt($(".location-saved").first().val());
+      locsaved = parseInt($(".location-saved").first().val()),
+      geolocate = function () {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          $(".gllpLatitude").val(position.coords.latitude);
+          $(".gllpLongitude").val(position.coords.longitude);
+          $(".gllpZoom").val(13);
+          locpic.custom_redraw();
+        });
+      };
 
   if ( locpicker.length ) {
 
@@ -88,11 +97,12 @@ var AQE = (function ( $ ) {
 
     // HTML5 geolocation
     if(!locsaved && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        $(".gllpLatitude").val(position.coords.latitude);
-        $(".gllpLongitude").val(position.coords.longitude);
-        $(".gllpZoom").val(13);
-        locpic.custom_redraw();
+      geolocate();
+    }
+    if (navigator.geolocation) {
+      $(".find-me").removeClass("hidden").on("click", function(event) {
+        event.preventDefault();
+        geolocate();
       });
     }
 
