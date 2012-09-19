@@ -27,3 +27,7 @@ API_KEY=xxxxxxx
 `bundle exec foreman start`
 
 Visit http://localhost:5000
+
+#### Running the tests
+
+`bundle exec rake`
