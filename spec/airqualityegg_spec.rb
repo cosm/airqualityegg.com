@@ -95,6 +95,7 @@ describe AirQualityEgg, :type => :request do
           to_return(:status => 200, :body => "")
         fill_in 'title', :with => "Joe's London based egg"
         fill_in 'description', :with => "I built this egg with rock and roll"
+        select 'Indoor', :from => 'Exposure'
         click_button 'Save'
         page.should have_content "Joe's London based egg"
         current_path.should == "/egg/101"
