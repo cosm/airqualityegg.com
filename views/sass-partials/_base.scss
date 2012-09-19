@@ -56,12 +56,19 @@ a {
 .app-footer,
 .app-content {
   padding-top: em($site-gutter/2);
-  padding-bottom: em($site-gutter/2);
+  padding-bottom: em($site-gutter);
 }
 
 .app-content {
   position: relative;
   background-color: $color-background;
+}
+
+.app-footer {
+  position: relative;
+  padding-top: em($site-gutter);
+  margin-bottom: em($site-gutter * 2);
+  background: $color-blue-lightest url('/assets/img/egg-shell-alt.jpg') repeat top left;  
 }
 
 // MAP
@@ -86,6 +93,76 @@ a {
 
   img {
     max-width: none;
+  }
+}
+
+@-webkit-keyframes pulsedot {
+  0%    { opacity: 1; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+@-moz-keyframes pulsedot {
+  0%    { opacity: 1; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+@-o-keyframes pulsedot {
+  0%    { opacity: 1; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+@keyframes pulsedot {
+  0%    { opacity: 1; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+.map-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  background: rgba(0,0,0,.75);
+
+  .map-overlay-loading {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: block;
+    margin: -1em 0 0 0;
+    font-size: em(18);
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    text-align: center;
+    letter-spacing: -.05em;
+
+    span {
+      -webkit-animation: pulsedot .75s infinite;
+         -moz-animation: pulsedot .75s infinite;
+           -o-animation: pulsedot .75s infinite;
+              animation: pulsedot .75s infinite;
+    }
+
+    span:nth-child(2) {
+      -webkit-animation-delay: .1s;
+         -moz-animation-delay: .1s;
+           -o-animation-delay: .1s;
+              animation-delay: .1s;
+    }
+
+    span:nth-child(3) {
+      -webkit-animation-delay: .2s;
+         -moz-animation-delay: .2s;
+           -o-animation-delay: .2s;
+              animation-delay: .2s;
+    }
   }
 }
 
