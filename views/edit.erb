@@ -1,8 +1,8 @@
-<form class="edit-egg" method="post" action="/egg/<%= @feed.id %>/update">
+<form class="edit-egg form-validation" method="post" action="/egg/<%= @feed.id %>/update">
   <h1 class="page-header heading-narrow">Your Egg's Information</h1>
-  <p class="field">
+  <p class="field field-required">
     <label class="label" for="title">Title</label>
-    <input class="input" type="text" name="title" id="title" value="<%= @feed.title %>" autofocus>
+    <input class="input" type="text" name="title" id="title" value="<%= @feed.title %>" autofocus data-validate>
   </p>
 
   <p class="field">
@@ -10,9 +10,10 @@
     <textarea class="input" type="text" name="description" id="description" rows="5"><%= @feed.description %></textarea>
   </p>
 
-  <p class="field">
+  <p class="field field-required">
     <label class="label" for="context">Exposure</label>
-    <select name="location_exposure" id="context">
+    <select name="location_exposure" id="context" data-validate>
+      <option value="" <%= "selected" unless ['indoor', 'outdoor'].include?(@feed.location_exposure) %>>Pick one ...</option>
       <option value="indoor" <%= "selected" if @feed.location_exposure == 'indoor' %>>Indoor</option>
       <option value="outdoor" <%= "selected" if @feed.location_exposure == 'outdoor' %>>Outdoor</option>
     </select>
@@ -25,7 +26,7 @@
 
   <!-- location picker -->
   <fieldset class="gllpLatlonPicker" id="edit-location-picker">
-    <div class="field">
+    <div class="field field-required">
       <label class="label" for="location-search">Location</label>
       <input class="input input-search gllpSearchField" type="text" id="location-search" placeholder="Search location">
 

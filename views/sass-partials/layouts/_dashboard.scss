@@ -71,10 +71,10 @@
 // GAUGES
 
 .current-value-measure {
-  position: relative;
+  position: absolute;
   top: 50%;
+  width: 100%;
   display: block;
-  padding-left: em(25,24);
   margin: 0;
   font-size: em(24);
   line-height: em(28,24);
@@ -83,6 +83,13 @@
   text-align: right;
   border-top: 1px solid $color-blue-dark-alt;
   z-index: 15;
+  $transition: top 1s ease-out;
+  @include transition($transition);
+}
+
+.current-value-measure-wrap {
+  display: block;
+  padding-left: em(25,24);
 }
 
 .current-gauge,
@@ -115,6 +122,8 @@
   background-image:     -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
   background-image:      -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
   background-image:         linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  $transition: background-color 1s ease-out, height 1s ease-out;
+  @include transition($transition);
 
   &.current-gauge-green {
     background-color: $color-green;

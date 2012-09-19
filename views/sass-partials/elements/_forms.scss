@@ -92,3 +92,26 @@
   background-position: em(8) center;
   background-repeat: no-repeat;
 }
+
+//
+// REQUIRED FIELD
+//
+
+.field.field-required {
+  .label {
+    &:after {
+      content: "*";
+      position: relative;
+      top: -.1em;
+      margin-left: .5em;
+      color: $color-red;
+      font-weight: bold;
+    }
+  }
+
+  .bubble-error {
+    display: block;
+    max-width: em(238);
+    margin-top: em(10);
+  }
+}
