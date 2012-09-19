@@ -62,12 +62,18 @@
 
 <section class="dashboard-metadata">
   <h1 class="metadata-feed-title"><%= @feed.title %></h1>
+  <% if @feed.location_exposure %>
   <h2 class="metadata-title">Exposure</h2>
   <p class="metadata-value"><%= @feed.location_exposure %></p>
+  <% end %>
+  <% if @feed.location_ele %>
   <h2 class="metadata-title">Elevation</h2>
   <p class="metadata-value"><%= @feed.location_ele %></p>
+  <% end %>
+  <% if @feed.description %>
   <h2 class="metadata-title">Description</h2>
   <p class="metadata-value metadata-description"><%= @feed.description %></p>
+  <% end %>
 </section>
 
 <script>
