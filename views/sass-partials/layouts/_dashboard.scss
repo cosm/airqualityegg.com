@@ -96,6 +96,12 @@
 .current-gauge {
   height: 100%;
   background-color: $color-blue-light-alt;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.5)), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image:    -moz-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image:     -ms-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image:      -o-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image:         linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,0));
   z-index: 5;
 }
 
@@ -103,6 +109,12 @@
   height: 50%;
   z-index: 10;
   background-color: $color-blue-dark-alt;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.3)), to(rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image:    -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image:     -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image:      -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+  background-image:         linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
 
   &.current-gauge-green {
     background-color: $color-green;
