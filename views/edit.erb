@@ -39,6 +39,7 @@
       <input name="location_name" type="hidden" class="gllpLocationName">
       <input name="location_zoom" type="hidden" class="gllpZoom" value="<%= @feed.location_lat && @feed.location_lon ? 13 : 2 %>">
       <input name="location_saved" type="hidden" class="location-saved" value="<%= @feed.location_lat && @feed.location_lon ? 1 : 0 %>">
+      <input name="existing_tags" type="hidden" value="<%= @feed.tags %>">
     </div>
   </fieldset>
 
