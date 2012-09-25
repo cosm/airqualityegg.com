@@ -31,3 +31,7 @@ Visit http://localhost:5000
 #### Running the tests
 
 `bundle exec rake`
+
+## License
+
+Please see LICENSE for licensing details.
