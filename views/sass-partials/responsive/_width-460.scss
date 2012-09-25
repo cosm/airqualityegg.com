@@ -65,6 +65,10 @@
   left: - em(250);
 }
 
+.home-section-note {
+  text-align: center;
+}
+
 //
 // BASE
 //
@@ -126,6 +130,20 @@
   text-align: right;
 }
 
+// FOOTER
+
+.elsewhere {
+  float: left;
+  text-align: left;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cosm-logo {
+  float: right;
+  text-align: right;
+  margin-top: em(38);
+}
 
 
 

@@ -108,6 +108,21 @@ $site-gutter: $site-gutter * 2;
   right: 75.5%;
 }
 
+.home-section-paragraph {
+  width: 36%;
+}
+
+.home-section-image,
+.home-section-video,
+.home-section-note {
+  float: right;
+  width: 52%;
+}
+
+.home-section-note {
+  text-align: right;
+}
+
 //
 // EDIT EGG
 //
