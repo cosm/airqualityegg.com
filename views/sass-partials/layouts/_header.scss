@@ -45,6 +45,10 @@
 .claiming-button {
   // responsive styles in _width-460.scss
   margin-left: - em(18);
+
+  .lt-ie8 & {
+    margin-left: - em(30);
+  }
 }
 
 .claiming-error {

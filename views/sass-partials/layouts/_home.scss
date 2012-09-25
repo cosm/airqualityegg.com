@@ -52,6 +52,7 @@
 .video-box {
   position: relative;
   padding-top: 56.25%;
+  background: $color-background-alt url('/assets/img/loader-bg.gif') no-repeat center center !important;
 
   .video {
     position: absolute;
