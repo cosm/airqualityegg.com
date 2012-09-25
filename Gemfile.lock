@@ -40,6 +40,7 @@ GEM
     nokogiri (1.5.5)
     ox (1.5.9)
     rack (1.4.1)
+    rack-force_domain (0.2.0)
     rack-protection (1.2.0)
       rack
     rack-test (0.6.1)
@@ -92,6 +93,7 @@ DEPENDENCIES
   cosm-rb
   foreman
   newrelic_rpm
+  rack-force_domain
   rack-test
   rake
   rspec
