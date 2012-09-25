@@ -169,15 +169,40 @@ a {
 // FOOTER
 
 .cosm-logo {
-  text-align: right;
   font-weight: bold;
   color: $color-blue-alt;
   text-shadow: 0 1px 0 #fff;
+  text-align: center;
 
   .ir {
     display: inline-block;
     width: em(171);
     height: em(42);
     background: transparent url('/assets/img/logo-cosm-ratio1.png') no-repeat left center;
+  }
+}
+
+.elsewhere {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.elsewhere-item {
+  font-weight: bold;
+  margin: 0;
+
+  & + .elsewhere-item {
+    margin-top: 1em;
+  }
+
+  a {
+    color: $color-blue-dark;
+    text-shadow: 0 1px 0 white;
+
+    &:hover,
+    &:focus {
+      color: $color-blue-darkest;
+    }
   }
 }
