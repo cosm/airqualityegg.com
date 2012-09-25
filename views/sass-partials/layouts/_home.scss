@@ -11,13 +11,79 @@
   max-height: em(400);
 }
 
+.home-section {
+  margin-bottom: em(50);
+}
+
+.home-section-title {
+  margin: 0 0 .25em;
+}
+
+.home-section-paragraph {
+  margin: 0 0 1em 0;
+  font-size: em(16);
+  line-height: 1.4em;
+  color: darken($color-blue-alt,20);
+
+  a {
+    color: $color-blue-dark;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: $color-blue-dark-alt;
+    }
+  }
+}
+
+.home-section-image,
+.home-section-video,
+.home-section-note {
+  margin-bottom: 2em;
+}
+
+.home-section-image {
+  display: block;
+
+  img {
+    display: block;
+  }
+}
+
+.video-box {
+  position: relative;
+  padding-top: 56.25%;
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.home-section-text-left {
+  .home-section-title {
+    margin-bottom: .5em;
+  }
+}
+
+.home-section-note {
+  margin-top: em(41,20);
+  margin-bottom: em(60,20);
+  font-size: em(20);
+  line-height: em(30,20);
+  color: $color-blue-dark;
+  letter-spacing: -.05em;
+}
+
 //
 // WHAT IS IT
 //
 
 .home-whatisit {
   position: relative;
-  margin: 1em 0;
+  margin: 1em 0 5em;
 }
 
 .home-whatisit-prop {
