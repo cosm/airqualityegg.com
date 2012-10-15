@@ -5,6 +5,7 @@ gem 'cosm-rb'
 gem 'sass'
 gem 'newrelic_rpm'
 gem 'thin'
+gem 'rack-force_domain'
 
 group :development do
   gem 'foreman'
