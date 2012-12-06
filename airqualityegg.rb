@@ -148,7 +148,7 @@ class AirQualityEgg < Sinatra::Base
 
   def product_url
     redirect_with_error('Please enter a serial number') if params[:serial].blank?
-    "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial]}/activate"
+    "#{$api_url}/v2/products/#{$product_id}/devices/#{params[:serial].downcase}/activate"
   end
 
   def redirect_with_error(message)
