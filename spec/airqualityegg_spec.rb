@@ -126,13 +126,25 @@ describe AirQualityEgg, :type => :request do
     before do
       stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
         with(:headers => { 'X-ApiKey' => 'apikey' }).
-        to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
+        to_return(:status => 200, :body => egg_json)
     end
 
     it 'should render the dashboard' do
       visit '/egg/101'
       page.find('h1.metadata-feed-title').should have_content("Joe's Air Quality Egg")
       current_path.should == '/egg/101'
+      within('div.current-no2') do
+        page.should have_content('125')
+      end
+      within('div.current-co') do
+        page.should have_content('270023')
+      end
+      within('div.current-temperature') do
+        page.should have_content('22')
+      end
+      within('div.current-humidity') do
+        page.should have_content('70')
+      end
     end
   end
 end
