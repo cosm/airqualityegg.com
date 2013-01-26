@@ -99,10 +99,10 @@ class AirQualityEgg < Sinatra::Base
   get '/egg/:id' do
     response = Cosm::Client.get(feed_url(params[:id]), :headers => {"X-ApiKey" => $api_key})
     @feed = Cosm::Feed.new(response.body)
-    @no2 = @feed.datastreams.detect{|d| d.tags.match(/computed/) && d.tags.match(/sensor_type=NO2/)}
-    @co = @feed.datastreams.detect{|d| d.tags.match(/computed/) && d.tags.match(/sensor_type=CO/)}
-    @temperature = @feed.datastreams.detect{|d| d.tags.match(/computed/) && d.tags.match(/sensor_type=Temperature/)}
-    @humidity = @feed.datastreams.detect{|d| d.tags.match(/computed/) && d.tags.match(/sensor_type=Humidity/)}
+    @no2 = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=NO2/)}
+    @co = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=CO/)}
+    @temperature = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=Temperature/)}
+    @humidity = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=Humidity/)}
     @feeds = find_egg_feeds_near(@feed)
     @map_markers = collect_map_markers(@feeds)
     erb :show
