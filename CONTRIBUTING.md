@@ -35,7 +35,7 @@ Github account](https://github.com/signup/free).
 
 If you just want to raise a ticket containing a bug report or a feature
 request, then go to the issues page for the project here:
-[https://github.com/cosm/airqualityegg.com/issues](https://github.com/cosm/airqualityegg.com/issues),
+[https://github.com/xively/airqualityegg.com/issues](https://github.com/xively/airqualityegg.com/issues),
 click **New Issue** and submit the issue you have identified.
 
 If it's a bug report it would be most useful if you can give details of exactly
@@ -104,7 +104,7 @@ an issue is fantastic, so here's what you need to do.
 
 * push your topic branch to your fork of the repository on Github.
 * create a pull request from your topic branch back to the 'master' fork in the
-  Cosm organization: https://help.github.com/articles/using-pull-requests
+  Xively organization: https://help.github.com/articles/using-pull-requests
 
 At this point you are waiting on us to review the changes, and if they are all
 good we will merge them and get them deployed to the production site.  If we

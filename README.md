@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/cosm/airqualityegg.com.png)](http://travis-ci.org/cosm/airqualityegg.com)
+[![Build Status](https://secure.travis-ci.org/xively/airqualityegg.com.png)](http://travis-ci.org/xively/airqualityegg.com)
 
 # Airqualityegg.com
 
@@ -21,10 +21,10 @@ PRODUCT_ID=xxxxxx
 API_KEY=xxxxxxx
 ```
 
-The values in this file are required to interact with Cosm, but some value
+The values in this file are required to interact with Xively, but some value
 for each environment variable is required to boot the app locally, so initially
 just create the file with dummy contents. Note that this means your local app 
-won't be able to actually interact with Cosm, but you will be able to view the 
+won't be able to actually interact with Xively, but you will be able to view the 
 AQE site running locally.
 
 ### Install bundler gem
@@ -48,14 +48,14 @@ website running locally on your machine.
 
 ## Contributing
 
-Please see our [Contributing guidelines](https://github.com/cosm/airqualityegg.com/blob/master/CONTRIBUTING.md).
+Please see our [Contributing guidelines](https://github.com/xively/airqualityegg.com/blob/master/CONTRIBUTING.md).
 
 ## License
 
-Please see [LICENSE](https://github.com/cosm/airqualityegg.com/blog/master/LICENSE) for licensing details.
+Please see [LICENSE](https://github.com/xively/airqualityegg.com/blog/master/LICENSE) for licensing details.
 
 ## Support
 
-Please file any issues at our [Github issues page](https://github.com/cosm/airqualityegg.com/issues).
+Please file any issues at our [Github issues page](https://github.com/xively/airqualityegg.com/issues).
 For general disussion about the project please go to the [Air Quality Egg group](https://groups.google.com/forum/#!forum/airqualityegg).
 
