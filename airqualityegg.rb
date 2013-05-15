@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'sinatra/base'
 require 'sinatra/reloader' if Sinatra::Base.development?
 require 'sass'
-require 'cosm-rb'
+require 'xively-rb'
 
 
 class AirQualityEgg < Sinatra::Base
@@ -13,7 +13,7 @@ class AirQualityEgg < Sinatra::Base
     enable :logging
     $product_id = ENV['PRODUCT_ID']
     $api_key = ENV['API_KEY']
-    $api_url = ENV['API_URL'] || Cosm::Client.base_uri
+    $api_url = ENV['API_URL'] || Xively::Client.base_uri
 
     raise "PRODUCT_ID not set" if $product_id.nil?
     raise "API_KEY not set" if $api_key.nil?
@@ -56,8 +56,8 @@ class AirQualityEgg < Sinatra::Base
   get '/egg/:id/edit' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
     redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
-    response = Cosm::Client.get(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
-    @feed = Cosm::Feed.new(response.body)
+    response = Xively::Client.get(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key})
+    @feed = Xively::Feed.new(response.body)
     erb :edit
   end
 
@@ -65,7 +65,7 @@ class AirQualityEgg < Sinatra::Base
   post '/register' do
     begin
       logger.info("GET: #{product_url}")
-      response = Cosm::Client.get(product_url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
+      response = Xively::Client.get(product_url, :headers => {'Content-Type' => 'application/json', "X-ApiKey" => $api_key})
       json = MultiJson.load(response.body)
       session['response_json'] = json
       feed_id, api_key = extract_feed_id_and_api_key_from_session
@@ -80,7 +80,7 @@ class AirQualityEgg < Sinatra::Base
   post '/egg/:id/update' do
     feed_id, api_key = extract_feed_id_and_api_key_from_session
     redirect_with_error('Not your egg') if feed_id.to_s != params[:id]
-    feed = Cosm::Feed.new({
+    feed = Xively::Feed.new({
       :title => params[:title],
       :description => params[:description],
       :id => feed_id,
@@ -91,14 +91,14 @@ class AirQualityEgg < Sinatra::Base
       :location_exposure => params[:location_exposure],
       :tags => [params[:existing_tags], "device:type=airqualityegg"].join(',')
     })
-    response = Cosm::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
+    response = Xively::Client.put(feed_url(feed_id), :headers => {'Content-Type' => 'application/json', "X-ApiKey" => api_key}, :body => feed.to_json)
     redirect "/egg/#{feed_id}"
   end
 
   # View egg dashboard
   get '/egg/:id' do
-    response = Cosm::Client.get(feed_url(params[:id]), :headers => {"X-ApiKey" => $api_key})
-    @feed = Cosm::Feed.new(response.body)
+    response = Xively::Client.get(feed_url(params[:id]), :headers => {"X-ApiKey" => $api_key})
+    @feed = Xively::Feed.new(response.body)
     @no2 = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=NO2/)}
     @co = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=CO/)}
     @temperature = @feed.datastreams.detect{|d| !d.tags.nil? && d.tags.match(/computed/) && d.tags.match(/sensor_type=Temperature/)}
@@ -123,10 +123,10 @@ class AirQualityEgg < Sinatra::Base
   def find_egg_feeds(feed = nil)
     url = feeds_url(feed)
     logger.info("GET: #{url} - geosearch")
-    response = Cosm::Client.get(url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
-    @feeds = Cosm::SearchResult.new(response.body).results
+    response = Xively::Client.get(url, :headers => {'Content-Type' => 'application/json', 'X-ApiKey' => $api_key})
+    @feeds = Xively::SearchResult.new(response.body).results
   rescue
-    @feeds = Cosm::SearchResult.new().results
+    @feeds = Xively::SearchResult.new().results
   end
 
   def feed_url(feed_id)

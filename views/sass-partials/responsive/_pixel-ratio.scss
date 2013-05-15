@@ -1,59 +1,59 @@
-// 
+//
 // > 1.5
 //
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
-       only screen and (   -moz-min-device-pixel-ratio: 1.5), 
-       only screen and (     -o-min-device-pixel-ratio: 3/2), 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (   -moz-min-device-pixel-ratio: 1.5),
+       only screen and (     -o-min-device-pixel-ratio: 3/2),
        only screen and (        min-device-pixel-ratio: 1.5) {
-  
+
   .branding-logo a {
     background-image: url('/assets/img/branding-logo@2x.png');
     background-size: 52px 57px;
-    
+
     // hack for IEs that reach here
     background-image: url('/assets/img/branding-logo.png')\9;
   }
 
-  .cosm-logo .ir {
-    background-image: url('/assets/img/logo-cosm-ratio1_5.png');
-    background-size: 171px 42px;
-    
+  .xively-logo .ir {
+    background-image: url('/assets/img/xively-logo@2x.png');
+    background-size: 171px 65px;
+
     // hack for IEs that reach here
-    background-image: url('/assets/img/logo-cosm-ratio1.png')\9;
+    background-image: url('/assets/img/xively-logo.png')\9;
   }
 
 }
 
-// 
+//
 // > 2
 //
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), 
-       only screen and (   -moz-min-device-pixel-ratio: 2), 
-       only screen and (     -o-min-device-pixel-ratio: 2/1), 
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (   -moz-min-device-pixel-ratio: 2),
+       only screen and (     -o-min-device-pixel-ratio: 2/1),
        only screen and (        min-device-pixel-ratio: 2) {
-  
+
   .branding-logo a {
     background-image: url('/assets/img/branding-logo@2x.png');
     background-size: 52px 57px;
-    
+
     // hack for IEs that reach here
     background-image: url('/assets/img/branding-logo.png')\9;
   }
 
-  .cosm-logo .ir {
-    background-image: url('/assets/img/logo-cosm-ratio2.png');
-    background-size: 171px 42px;
-    
+  .xively-logo .ir {
+    background-image: url('/assets/img/xively-logo@2x.png');
+    background-size: 171px 65px;
+
     // hack for IEs that reach here
-    background-image: url('/assets/img/logo-cosm-ratio1.png')\9;
+    background-image: url('/assets/img/xively-logo.png')\9;
   }
 
   body {
     background-image: url('/assets/img/egg-shell@2X.jpg');
     background-size: 256px 256px;
-    
+
     // hack for IEs that reach here
     background-image: url('/assets/img/egg-shell.jpg')\9;
   }
@@ -62,7 +62,7 @@
   .app-footer {
     background-image: url('/assets/img/egg-shell-alt@2X.jpg');
     background-size: 256px 256px;
-    
+
     // hack for IEs that reach here
     background-image: url('/assets/img/egg-shell-alt.jpg')\9;
   }
