@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/xively/airqualityegg.com.png)](http://travis-ci.org/xively/airqualityegg.com)
+[![Build Status](https://travis-ci.org/xively/airqualityegg.com.png?branch=master)](https://travis-ci.org/xively/airqualityegg.com)
 
 # Airqualityegg.com
 
