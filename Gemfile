@@ -1,7 +1,7 @@
 source :rubygems
 
 gem 'sinatra'
-gem 'cosm-rb'
+gem 'xively-rb'
 gem 'sass'
 gem 'newrelic_rpm'
 gem 'thin'

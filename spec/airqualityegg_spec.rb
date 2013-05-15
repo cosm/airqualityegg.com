@@ -28,7 +28,7 @@ describe AirQualityEgg, :type => :request do
     it 'should render the edit form if found' do
       stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
         with(:headers => { 'X-ApiKey' => 'HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g' }).
-        to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
+        to_return(:status => 200, :body => Xively::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
       stub_request(:get, "http://api.cosm.com/v2/products/airqualityegg/devices/123/activate").
         with(:headers => { 'X-ApiKey' => 'apikey'}).
         to_return(:status => 200, :body => MultiJson.dump({"datastreams"=>[], "feed_id"=>101, "apikey"=>"HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g"}))
@@ -41,7 +41,7 @@ describe AirQualityEgg, :type => :request do
     it "should downcase serial before activating" do
       stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
         with(:headers => { 'X-ApiKey' => 'HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g' }).
-        to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
+        to_return(:status => 200, :body => Xively::Feed.new(:title => "Joe's Air Quality Egg", :id => 101).to_json)
       stub_request(:get, "http://api.cosm.com/v2/products/airqualityegg/devices/ab:12:cd:34:ef:56/activate").
         with(:headers => { 'X-ApiKey' => 'apikey'}).
         to_return(:status => 200, :body => MultiJson.dump({"datastreams"=>[], "feed_id"=>101, "apikey"=>"HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g"}))
@@ -87,10 +87,10 @@ describe AirQualityEgg, :type => :request do
           to_return(:status => 200, :body => MultiJson.dump({"datastreams"=>[], "feed_id"=>101, "apikey"=>"HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g"}))
         stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
           with(:headers => { 'X-ApiKey' => 'HSA8lzxDe-uOigbz8Ic_syfuGsaSAKxjcUZMS3NTbXJhWT0g' }).
-          to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's Air Quality Egg", :id => 101, :tags => 'airqualityegg').to_json)
+          to_return(:status => 200, :body => Xively::Feed.new(:title => "Joe's Air Quality Egg", :id => 101, :tags => 'airqualityegg').to_json)
         stub_request(:get, "http://api.cosm.com/v2/feeds/101.json").
           with(:headers => { 'X-ApiKey' => 'apikey' }).
-          to_return(:status => 200, :body => Cosm::Feed.new(:title => "Joe's London based egg", :id => 101).to_json)
+          to_return(:status => 200, :body => Xively::Feed.new(:title => "Joe's London based egg", :id => 101).to_json)
         visit '/'
         fill_in 'serial', :with => '123'
         click_button 'Add my egg'
