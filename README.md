@@ -59,3 +59,4 @@ Please see [LICENSE](https://github.com/xively/airqualityegg.com/blog/master/LIC
 Please file any issues at our [Github issues page](https://github.com/xively/airqualityegg.com/issues).
 For general disussion about the project please go to the [Air Quality Egg group](https://groups.google.com/forum/#!forum/airqualityegg).
 
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/66c4028a64953ab110a8fd2ea42ca216 "githalytics.com")](http://githalytics.com/xively/airqualityegg.com)
